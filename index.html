@@ -1,0 +1,1238 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-KLKXP4K3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GTM-KLKXP4K3');
+    </script>
+    <!-- End Google Tag Manager -->
+    <!--
+    ============================================================
+    Dominion Global Church On Fire - Main Website
+    ============================================================
+    
+    HOW TO UPDATE THIS WEBSITE:
+    
+    1. Open this file in any text editor (Notepad, VS Code, etc.)
+    2. Search for text you want to change and replace it
+    3. To change photos: Replace any URL starting with https://files.cdn-files-a.com
+    4. To change colors: Edit the CSS variables in :root (lines ~40-47)
+    5. To add gallery photos: Copy a <div class="pic"> block and change the src
+    6. To add events: Copy a <div class="ev"> block and update the details
+    7. Save and refresh your browser
+    
+    ============================================================
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dominion Global Church On Fire - God With Us</title>
+    <meta name="description" content="Dominion Global Church On Fire - God With Us. A vibrant community of faith, hope, and love.">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="cdn/files/uploads/10469550/FavIcon.png" type="image/jpeg">
+    <link rel="icon" href="cdn/files/uploads/10469550/FavIcon.png" type="image/jpeg">
+    <link rel="apple-touch-icon" sizes="152x152" href="cdn/files/uploads/10469550/FavIcon.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="cdn/files/uploads/10469550/FavIcon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="cdn/files/uploads/10469550/FavIcon.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #E8650A;
+            --accent: #F4A261;
+            --dark: #2B2D42;
+            --light: #FFF8F0;
+            --white: #ffffff;
+            --gray: #8D99AE;
+        }
+        
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Poppins', sans-serif; color: #333; line-height: 1.7; }
+        h1, h2, h3 { font-family: 'Poppins', sans-serif; font-weight: 700; }
+        .serif { font-family: 'Merriweather', serif; }
+        img { max-width: 100%; height: auto; display: block; }
+        a { text-decoration: none; color: inherit; }
+        
+        /* TOP BAR */
+        .top-bar { background: var(--dark); color: var(--white); padding: 8px 5%; display: flex; justify-content: space-between; font-size: 0.85rem; position: fixed; top: 70px; width: 100%; z-index: 999; }
+        .top-bar a { color: var(--accent); }
+        .top-bar a:hover { text-decoration: underline; }
+        
+        /* NAV */
+        .navbar {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            background: var(--white); box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            padding: 0 5%; display: flex; align-items: center; justify-content: space-between;
+            height: 70px;
+        }
+        .navbar .logo { display: flex; align-items: center; gap: 10px; font-size: 1.5rem; font-weight: 800; color: var(--primary); }
+        .navbar .logo img { height: 40px; width: auto; }
+        .navbar .logo span { color: var(--accent); }
+        .nav-links { display: flex; gap: 25px; list-style: none; align-items: center; }
+        .nav-links a { font-size: 0.9rem; font-weight: 500; color: var(--dark); transition: color 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
+        .nav-btn { background: var(--primary); color: var(--white) !important; padding: 10px 24px; border-radius: 50px; font-weight: 600 !important; }
+        .nav-btn:hover { background: #d45a08; }
+        .mobile-toggle { display: none; font-size: 1.5rem; cursor: pointer; background: none; border: none; }
+        
+        /* LANGUAGE SELECTOR */
+        .lang-selector select {
+            appearance: none; -webkit-appearance: none;
+            background: var(--light); color: var(--dark);
+            border: 2px solid var(--accent); border-radius: 8px;
+            padding: 6px 30px 6px 12px; font-size: 0.8rem; font-weight: 600;
+            font-family: 'Poppins', sans-serif; cursor: pointer;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%232B2D42' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat; background-position: right 10px center;
+        }
+        .lang-selector select:focus { outline: none; border-color: var(--primary); }
+        
+        /* HERO */
+        .hero {
+            position: relative; min-height: 100vh; display: flex; align-items: center;
+            overflow: hidden;
+        }
+        .hero-left {
+            flex: 1; display: flex; align-items: center; justify-content: center;
+            padding: 120px 5% 80px;
+        }
+        .hero-left-inner { max-width: 600px; }
+        .hero-left-inner .tag { display: inline-block; background: var(--light); color: var(--primary); padding: 6px 18px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px; }
+        .hero-left-inner h1 { font-size: 3.5rem; color: var(--dark); line-height: 1.15; margin-bottom: 20px; }
+        .hero-left-inner h1 span { color: var(--primary); }
+        .hero-left-inner p { font-size: 1.1rem; color: var(--gray); margin-bottom: 30px; line-height: 1.8; }
+        .hero-right {
+            flex: 1; height: 100vh; position: relative;
+            background: url('cdn/files/uploads/10469550/2000_67d6cf4087200.jpg') center/cover;
+        }
+        .hero-right::before {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(232,101,10,0.3), rgba(244,162,97,0.2));
+        }
+        .btn { display: inline-block; padding: 14px 35px; border-radius: 50px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s; border: none; cursor: pointer; }
+        .btn-primary { background: var(--primary); color: var(--white); }
+        .btn-primary:hover { background: #d45a08; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(232,101,10,0.3); }
+        .btn-secondary { border: 2px solid var(--primary); color: var(--primary); margin-left: 12px; }
+        .btn-secondary:hover { background: var(--primary); color: var(--white); }
+        
+        /* WELCOME STRIP */
+        .welcome-strip {
+            background: var(--primary); color: var(--white); padding: 50px 5%;
+            text-align: center;
+        }
+        .welcome-strip .verse { font-family: 'Merriweather', serif; font-style: italic; font-size: 1.3rem; max-width: 700px; margin: 0 auto 10px; }
+        .welcome-strip .ref { opacity: 0.8; font-size: 0.95rem; }
+        
+        /* SECTIONS */
+        .section { padding: 80px 5%; }
+        .head { text-align: center; margin-bottom: 50px; }
+        .head .sub { color: var(--primary); font-weight: 600; text-transform: uppercase; letter-spacing: 2px; font-size: 0.85rem; margin-bottom: 8px; }
+        .head h2 { font-size: 2.5rem; color: var(--dark); margin-bottom: 12px; }
+        .head .bar { width: 50px; height: 4px; background: var(--primary); margin: 0 auto; border-radius: 2px; }
+        
+        /* ABOUT */
+        .about-wrap { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .about-img { border-radius: 20px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.1); position: relative; }
+        .about-img img { width: 100%; }
+        .about-img .badge {
+            position: absolute; bottom: 20px; left: 20px; background: var(--primary);
+            color: var(--white); padding: 10px 20px; border-radius: 10px;
+            font-weight: 700; font-size: 0.9rem;
+        }
+        .about-txt h2 { font-size: 2.2rem; color: var(--dark); margin-bottom: 15px; }
+        .about-txt p { color: var(--gray); margin-bottom: 12px; }
+        
+        /* SERVICES */
+        .services-section { background: var(--light); }
+        .svc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; }
+        .svc-card {
+            background: var(--white); border-radius: 16px; padding: 30px 25px;
+            text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s; position: relative; overflow: hidden;
+        }
+        .svc-card::after {
+            content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+        .svc-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(232,101,10,0.15); }
+        .svc-card .svc-img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 20px; }
+        .svc-card h3 { color: var(--dark); margin-bottom: 8px; }
+        .svc-card p { color: var(--gray); font-size: 0.9rem; }
+        
+        /* GALLERY */
+        .gal-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; max-width: 1200px; margin: 0 auto; }
+        .pic { border-radius: 12px; overflow: hidden; height: 250px; cursor: pointer; position: relative; }
+        .pic:nth-child(1), .pic:nth-child(5) { grid-column: span 2; grid-row: span 2; height: 515px; }
+        .pic img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .pic:hover img { transform: scale(1.05); }
+        .pic::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(232,101,10,0.5), transparent);
+            opacity: 0; transition: opacity 0.3s;
+        }
+        .pic:hover::after { opacity: 1; }
+        
+        /* EVENTS */
+        .events-section { background: var(--light); }
+        .ev-list { max-width: 800px; margin: 0 auto; }
+        .ev {
+            display: flex; gap: 20px; background: var(--white); border-radius: 16px;
+            padding: 25px; margin-bottom: 15px; box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+            align-items: center; transition: all 0.3s;
+        }
+        .ev:hover { transform: translateX(5px); box-shadow: 0 8px 25px rgba(0,0,0,0.08); }
+        .ev .date {
+            min-width: 75px; text-align: center; background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: var(--white); border-radius: 12px; padding: 15px;
+        }
+        .ev .date .d { font-size: 1.8rem; font-weight: 800; display: block; }
+        .ev .date .m { font-size: 0.8rem; text-transform: uppercase; }
+        .ev .info h3 { color: var(--dark); margin-bottom: 4px; }
+        .ev .info .meta { color: var(--primary); font-weight: 600; font-size: 0.85rem; margin-bottom: 5px; }
+        .ev .info p { color: var(--gray); font-size: 0.9rem; }
+        
+        /* COMMUNITY POSTS */
+        .comm-sec { background: var(--light); }
+        .comm-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
+        .comm-post {
+            background: var(--white); border-radius: 16px; overflow: hidden;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.05); transition: all 0.3s;
+            display: flex; flex-direction: column;
+        }
+        .comm-post:hover { transform: translateX(5px); box-shadow: 0 8px 25px rgba(232,101,10,0.12); }
+        .comm-post .cp-body { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+        .comm-post .cp-top { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+        .comm-post .cp-emo { font-size: 1.4rem; }
+        .comm-post .cp-cat { color: var(--primary); font-weight: 600; text-transform: uppercase; letter-spacing: 2px; font-size: 0.75rem; }
+        .comm-post .cp-date { color: var(--primary); font-weight: 600; font-size: 0.8rem; margin-bottom: 10px; }
+        .comm-post h3 { color: var(--dark); margin-bottom: 10px; font-size: 1.1rem; line-height: 1.4; }
+        .comm-post p { color: var(--gray); font-size: 0.9rem; line-height: 1.6; flex-grow: 1; margin-bottom: 12px; }
+        .comm-post .cp-link { color: var(--primary); font-weight: 600; font-size: 0.85rem; transition: color 0.3s; }
+        .comm-post .cp-link:hover { color: var(--accent); }
+        .comm-post .cp-link::after { content: ' \2192'; }
+        .join-box {
+            text-align: center; margin-top: 40px; padding: 30px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 16px; color: var(--white);
+        }
+        .join-box h3 { color: var(--white); margin-bottom: 10px; font-size: 1.4rem; }
+        .join-box p { color: rgba(255,255,255,0.85); margin-bottom: 20px; font-size: 0.95rem; }
+        .join-box .btn { background: var(--white); color: var(--primary); }
+        .join-box .btn:hover { background: var(--dark); color: var(--white); }
+        
+        /* TEAM */
+        .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; max-width: 800px; margin: 0 auto; justify-content: center; }
+        .tm-card { text-align: center; }
+        .tm-card .photo { width: 170px; height: 170px; border-radius: 50%; overflow: hidden; margin: 0 auto 15px; border: 4px solid var(--accent); }
+        .tm-card .photo img { width: 100%; height: 100%; object-fit: cover; }
+        .tm-card h3 { font-size: 1.05rem; color: var(--dark); margin-bottom: 3px; }
+        .tm-card .role { color: var(--primary); font-weight: 600; font-size: 0.85rem; }
+        
+        /* CONTACT */
+        .contact-section {
+            background: linear-gradient(135deg, var(--dark) 0%, #1a1c29 100%);
+            color: var(--white);
+        }
+        .contact-section .head h2 { color: var(--white); }
+        .contact-section .head .sub { color: var(--accent); }
+        .contact-section .head .bar { background: var(--accent); }
+        .ct-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 950px; margin: 0 auto; }
+        .ct-item { display: flex; gap: 12px; margin-bottom: 25px; align-items: flex-start; }
+        .ct-item .ic { font-size: 1.3rem; min-width: 25px; text-align: center; }
+        .ct-item h4 { color: var(--accent); margin-bottom: 3px; font-size: 0.9rem; }
+        .ct-item p { opacity: 0.7; font-size: 0.9rem; }
+        .ct-form input, .ct-form textarea {
+            width: 100%; padding: 13px; margin-bottom: 12px; border: none;
+            border-radius: 10px; font-family: inherit; font-size: 1rem;
+            background: rgba(255,255,255,0.08); color: var(--white);
+        }
+        .ct-form textarea { height: 110px; resize: vertical; }
+        .ct-form .btn { width: 100%; }
+        
+        /* FOOTER */
+        .footer { background: #111; color: var(--white); text-align: center; padding: 30px 5%; }
+        .footer p { opacity: 0.5; font-size: 0.85rem; }
+        .footer .social-links { margin-bottom: 15px; }
+        .footer .social-links a { display: inline-block; width: 40px; height: 40px; line-height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); color: var(--white); margin: 0 5px; transition: all 0.3s; font-size: 1.2rem; }
+        .footer .social-links a:hover { background: var(--accent); transform: translateY(-3px); }
+        
+        /* LIGHTBOX */
+        .lightbox { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.9); align-items: center; justify-content: center; }
+        .lightbox.active { display: flex; }
+        .lightbox img { max-width: 90%; max-height: 90vh; border-radius: 10px; }
+        .lightbox .close { position: absolute; top: 20px; right: 30px; font-size: 2rem; color: white; cursor: pointer; }
+        
+        /* ===== RESPONSIVE ===== */
+
+        /* Tablets and small laptops (768px and below) */
+        @media (max-width: 768px) {
+            .top-bar { display: none; }
+            .nav-links { display: none; }
+            .mobile-toggle { display: block; }
+            .nav-links.show { display: flex; flex-direction: column; position: absolute; top: 70px; left: 0; right: 0; background: var(--white); padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); gap: 15px; z-index: 998; }
+            .hero { flex-direction: column; }
+            .hero-right { display: none; }
+            .hero-left { padding: 100px 5% 60px; }
+            .hero-left-inner h1 { font-size: 2.5rem; }
+            .hero-left-inner p { font-size: 1rem; }
+            .section { padding: 60px 5%; }
+            .head h2 { font-size: 2rem; }
+            .welcome-strip .verse { font-size: 1.1rem; }
+            .about-wrap, .ct-wrap { grid-template-columns: 1fr; }
+            .svc-grid { grid-template-columns: 1fr; }
+            .gal-grid { grid-template-columns: repeat(2, 1fr); }
+            .pic:nth-child(1), .pic:nth-child(5) { grid-column: span 1; grid-row: span 1; height: 250px; }
+            .team-grid { grid-template-columns: repeat(2, 1fr); }
+            .ev { flex-direction: column; text-align: center; }
+            .btn-secondary { margin-left: 0; margin-top: 10px; }
+        }
+
+        /* Small tablets and large phones (640px and below) */
+        @media (max-width: 640px) {
+            .hero-left-inner h1 { font-size: 2rem; }
+            .hero-left-inner p { font-size: 0.95rem; }
+            .hero-left-inner .tag { font-size: 0.75rem; padding: 5px 14px; }
+            .btn { padding: 12px 28px; font-size: 0.8rem; }
+            .section { padding: 50px 4%; }
+            .head h2 { font-size: 1.7rem; }
+            .head .sub { font-size: 0.75rem; }
+            .welcome-strip { padding: 35px 4%; }
+            .welcome-strip .verse { font-size: 1rem; }
+            .welcome-strip .ref { font-size: 0.85rem; }
+            .about-txt h2 { font-size: 1.8rem; }
+            .about-txt p { font-size: 0.95rem; }
+            .svc-card { padding: 20px 15px; }
+            .svc-card .svc-img { height: 160px; }
+            .svc-card h3 { font-size: 1.05rem; }
+            .svc-card p { font-size: 0.85rem; }
+            .gal-grid { grid-template-columns: 1fr; }
+            .pic { height: 200px; }
+            .team-grid { grid-template-columns: 1fr; }
+            .tm-card .photo { width: 150px; height: 150px; }
+            .ev { padding: 20px; gap: 15px; }
+            .ev .date { min-width: 60px; padding: 10px; }
+            .ev .date .d { font-size: 1.5rem; }
+            .ev .info h3 { font-size: 1rem; }
+            .ev .info p { font-size: 0.85rem; }
+            .ct-item { gap: 10px; margin-bottom: 20px; }
+            .ct-item .ic { font-size: 1.1rem; }
+            .ct-item h4 { font-size: 0.85rem; }
+            .ct-item p { font-size: 0.9rem; }
+            .ct-form input, .ct-form textarea { padding: 10px; font-size: 0.9rem; }
+        }
+
+        /* Standard phones (360px and below) */
+        @media (max-width: 360px) {
+            .navbar { padding: 0 3%; height: 60px; }
+            .navbar .logo { font-size: 1.2rem; }
+            .hero-left-inner h1 { font-size: 1.6rem; }
+            .hero-left-inner p { font-size: 0.85rem; }
+            .hero-left-inner .tag { font-size: 0.7rem; padding: 4px 12px; }
+            .btn { padding: 10px 20px; font-size: 0.75rem; }
+            .section { padding: 40px 3%; }
+            .head h2 { font-size: 1.4rem; }
+            .head { margin-bottom: 30px; }
+            .head .sub { font-size: 0.7rem; }
+            .welcome-strip { padding: 25px 3%; }
+            .welcome-strip .verse { font-size: 0.9rem; }
+            .welcome-strip .ref { font-size: 0.8rem; }
+            .about-txt h2 { font-size: 1.5rem; }
+            .about-txt p { font-size: 0.9rem; }
+            .about-img .badge { font-size: 0.8rem; padding: 8px 14px; }
+            .svc-card { padding: 15px 12px; }
+            .svc-card .svc-img { height: 140px; }
+            .svc-card h3 { font-size: 0.95rem; }
+            .svc-card p { font-size: 0.8rem; }
+            .pic { height: 180px; }
+            .tm-card .photo { width: 130px; height: 130px; }
+            .tm-card h3 { font-size: 0.95rem; }
+            .tm-card .role { font-size: 0.8rem; }
+            .ev { padding: 15px; gap: 12px; }
+            .ev .date { min-width: 50px; padding: 8px; }
+            .ev .date .d { font-size: 1.3rem; }
+            .ev .date .m { font-size: 0.7rem; }
+            .ev .info h3 { font-size: 0.95rem; }
+            .ev .info .meta { font-size: 0.8rem; }
+            .ev .info p { font-size: 0.8rem; }
+            .ct-item { gap: 8px; margin-bottom: 15px; }
+            .ct-item .ic { font-size: 1rem; min-width: 20px; }
+            .ct-item h4 { font-size: 0.8rem; }
+            .ct-item p { font-size: 0.85rem; }
+            .ct-form input, .ct-form textarea { padding: 8px; font-size: 0.85rem; }
+            .footer p { font-size: 0.75rem; }
+        }
+
+        /* Very small phones (320px and below) */
+        @media (max-width: 320px) {
+            .navbar { padding: 0 2%; }
+            .navbar .logo { font-size: 1rem; }
+            .hero-left-inner h1 { font-size: 1.3rem; }
+            .hero-left-inner p { font-size: 0.8rem; }
+            .btn { padding: 8px 16px; font-size: 0.7rem; }
+            .section { padding: 30px 2%; }
+            .head h2 { font-size: 1.2rem; }
+            .head .sub { font-size: 0.65rem; }
+            .welcome-strip { padding: 20px 2%; }
+            .welcome-strip .verse { font-size: 0.8rem; }
+            .welcome-strip .ref { font-size: 0.75rem; }
+            .about-txt h2 { font-size: 1.3rem; }
+            .about-txt p { font-size: 0.85rem; }
+            .about-img .badge { font-size: 0.75rem; padding: 6px 10px; }
+            .svc-card { padding: 12px 10px; }
+            .svc-card .svc-img { height: 120px; }
+            .svc-card h3 { font-size: 0.9rem; }
+            .svc-card p { font-size: 0.75rem; }
+            .pic { height: 150px; }
+            .tm-card .photo { width: 110px; height: 110px; }
+            .tm-card h3 { font-size: 0.85rem; }
+            .tm-card .role { font-size: 0.75rem; }
+            .ev { padding: 12px; }
+            .ev .date { min-width: 45px; padding: 6px; }
+            .ev .date .d { font-size: 1.1rem; }
+            .ev .info h3 { font-size: 0.9rem; }
+            .ev .info .meta { font-size: 0.75rem; }
+            .ev .info p { font-size: 0.75rem; }
+            .ct-item { gap: 6px; margin-bottom: 12px; }
+            .ct-item .ic { font-size: 0.9rem; min-width: 18px; }
+            .ct-item h4 { font-size: 0.75rem; }
+            .ct-item p { font-size: 0.8rem; }
+            .ct-form input, .ct-form textarea { padding: 7px; font-size: 0.8rem; }
+        }
+        
+        /* MUSIC PLAYER */
+        .music-section { background: linear-gradient(135deg, var(--dark) 0%, #1a1c29 100%); padding: 60px 5%; }
+        .music-section .head h2 { color: var(--white); }
+        .music-section .head .sub { color: var(--accent); }
+        .music-section .head .bar { background: var(--accent); }
+        .music-player { max-width: 700px; margin: 0 auto; background: rgba(255,255,255,0.05); border-radius: 16px; padding: 30px; box-shadow: 0 8px 30px rgba(0,0,0,0.3); }
+        
+        /* MAIN PLAYER BAR */
+        .main-player-bar { background: #f5f5f5; border-radius: 12px; padding: 12px 16px; display: flex; align-items: center; gap: 12px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+        .main-play-btn { width: 40px; height: 40px; border-radius: 50%; background: var(--primary); border: none; color: white; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.3s; }
+        .main-play-btn:hover { background: var(--accent); transform: scale(1.05); }
+        .main-player-info { flex-shrink: 0; min-width: 0; max-width: 140px; }
+        .main-player-title { color: #333; font-weight: 600; font-size: 0.85rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .main-player-artist { color: #777; font-size: 0.7rem; }
+        .main-player-time { color: #555; font-size: 0.8rem; font-variant-numeric: tabular-nums; flex-shrink: 0; min-width: 80px; text-align: center; }
+        .main-progress-container { flex: 1; height: 6px; background: #ddd; border-radius: 3px; cursor: pointer; position: relative; }
+        .main-progress-fill { height: 100%; background: var(--primary); border-radius: 3px; width: 0%; transition: width 0.1s linear; }
+        .main-volume-btn { width: 32px; height: 32px; border: none; background: none; color: #555; font-size: 1.1rem; cursor: pointer; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+        .main-volume-btn:hover { color: var(--primary); }
+        .main-prev-btn, .main-next-btn { width: 44px; height: 44px; border: none; background: #e0e0e0; color: #555; font-size: 1.8rem; cursor: pointer; flex-shrink: 0; display: flex; align-items: center; justify-content: center; border-radius: 8px; transition: all 0.2s; }
+        .main-prev-btn:hover, .main-next-btn:hover { background: var(--primary); color: white; }
+        .main-shuffle-check { display: flex; align-items: center; gap: 6px; flex-shrink: 0; cursor: pointer; color: #555; font-size: 0.8rem; }
+        .main-shuffle-check input[type="checkbox"] { width: 16px; height: 16px; cursor: pointer; accent-color: #2196F3; }
+        
+        /* TRACK LIST */
+        .music-list-container { max-height: 336px; overflow-y: auto; padding-right: 5px; }
+        .music-list-container::-webkit-scrollbar { width: 8px; }
+        .music-list-container::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); border-radius: 4px; }
+        .music-list-container::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px; }
+        .music-list-container::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+        .music-list-container { scrollbar-width: thin; scrollbar-color: var(--primary) rgba(255,255,255,0.05); }
+        .music-track { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 8px; cursor: pointer; transition: background 0.2s; margin-bottom: 4px; }
+        .music-track:hover { background: rgba(255,255,255,0.08); }
+        .music-track.active { background: rgba(255,255,255,0.12); }
+        .music-track-number { color: rgba(255,255,255,0.4); font-size: 0.8rem; width: 24px; text-align: center; flex-shrink: 0; }
+        .music-track.active .music-track-number { color: var(--accent); }
+        .music-track-info { flex: 1; min-width: 0; }
+        .music-track-title { color: var(--white); font-weight: 500; font-size: 0.9rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .music-track.active .music-track-title { color: var(--accent); }
+        .music-track-artist { color: rgba(255,255,255,0.5); font-size: 0.75rem; }
+        
+        /* MUSIC PLAYER RESPONSIVE */
+        @media (max-width: 640px) {
+            .music-section { padding: 40px 4%; }
+            .music-player { padding: 20px 15px; }
+            .main-player-bar { flex-wrap: wrap; padding: 10px 12px; gap: 8px; }
+            .main-player-info { max-width: 100px; }
+            .main-player-time { min-width: 70px; font-size: 0.7rem; }
+            .main-progress-container { order: 10; width: calc(100% - 24px); margin: 4px 12px 0; }
+            .music-list-container { max-height: 250px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav class="navbar">
+        <div class="logo"><img src="cdn/files/uploads/10469550/logo.png" alt="Logo">Dominion Global Church <span>on Fire</span></div>
+        <ul class="nav-links">
+            <li class="lang-selector">
+                <select id="langSelect">
+                    <option value="en">English</option>
+                    <option value="ha">Hausa</option>
+                    <option value="kan">Kanuri</option>
+                    <option value="shu">Shuwa Arabic</option>
+                </select>
+            </li>
+            <li><a href="#home" data-i18n="nav_home">Home</a></li>
+            <li><a href="#about" data-i18n="nav_about">About</a></li>
+            <li><a href="#music" data-i18n="nav_music">Praise & Worship</a></li>
+            <li><a href="#services" data-i18n="nav_services">Services</a></li>
+            <li><a href="#gallery" data-i18n="nav_gallery">Gallery</a></li>
+            <li><a href="#community" data-i18n="nav_community">Community</a></li>
+            <li><a href="#contact" class="nav-btn" data-i18n="nav_contact">Contact Us</a></li>
+        </ul>
+        <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('show')">☰</button>
+    </nav>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <span>📍 No: 5 Dalori Sabongari Bama Road Maiduguri, Borno State | 📞 +234 0803 679 2702</span>
+        <span>Follow us: <a href="https://www.facebook.com/groups/798617002450170/" target="_blank" rel="noopener noreferrer">Facebook</a> | <a href="https://www.youtube.com/@dominionworldoutreachniger6622" target="_blank" rel="noopener noreferrer">YouTube</a></span>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-left">
+            <div class="hero-left-inner">
+                <div class="tag" data-i18n="hero_tag">God With Us</div>
+                <h1 data-i18n="hero_title">Welcome to<br><span>Dominion Global Church On Fire</span></h1>
+                <p data-i18n="hero_desc">A vibrant, Spirit-filled community where everyone is welcome. Come experience the love of God through worship, fellowship, and service.</p>
+                <a href="#services" class="btn btn-primary" data-i18n="hero_btn1">Service Times</a>
+                <a href="#about" class="btn btn-secondary" data-i18n="hero_btn2">Learn More</a>
+            </div>
+        </div>
+        <div class="hero-right"></div>
+    </section>
+
+    <!-- WELCOME STRIP -->
+    <div class="welcome-strip">
+        <div class="verse" data-i18n="welcome_verse">"For God so loved the world, that he gave his only Son, that whoever believes in him should not perish but have eternal life."</div>
+        <div class="ref" data-i18n="welcome_ref">John 3:16</div>
+    </div>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+        <div class="about-wrap">
+            <div class="about-img">
+                <img src="cdn/files/uploads/10469550/2000_67d6d2429ff21.jpg" alt="Our church community">
+                <div class="badge">Since 2010</div>
+            </div>
+            <div class="about-txt">
+                <h2 data-i18n="about_title">God With Us Then & Now</h2>
+                <p data-i18n="about_p1">Emmanuel means "God with us" – and that's the heart of everything we do. We believe God is actively present in our worship, our community, and our daily lives.</p>
+                <p data-i18n="about_p2">Founded over a decade ago, Dominion Global Church On Fire has grown from a small home fellowship to a thriving community of believers. Yet our mission remains the same: to share the love of Jesus Christ with everyone we meet.</p>
+                <p data-i18n="about_p3">We offer vibrant worship, practical teaching, and genuine relationships. No matter where you are in your journey, there's a place for you at Dominion Global Church On Fire.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MUSIC PLAYER -->
+    <section class="music-section" id="music">
+        <div class="head">
+            <div class="sub" data-i18n="music_sub">Worship Music</div>
+            <h2 data-i18n="music_title">Praise & Worship</h2>
+            <div class="bar"></div>
+        </div>
+        <div class="music-player">
+            <!-- Main Player Bar -->
+            <div class="main-player-bar">
+                <button class="main-play-btn" id="mainPlayBtn" onclick="toggleMainPlay()">▶</button>
+                <div class="main-player-info">
+                    <div class="main-player-title" id="mainPlayerTitle" data-i18n="music_select">Select a track</div>
+                    <div class="main-player-artist" id="mainPlayerArtist" data-i18n="music_artist">Worship Song</div>
+                </div>
+                <div class="main-player-time" id="mainPlayerTime">0:00 / 0:00</div>
+                <div class="main-progress-container" id="mainProgressContainer" onclick="seekAudio(event)">
+                    <div class="main-progress-fill" id="mainProgressFill"></div>
+                </div>
+                <button class="main-prev-btn" onclick="prevTrack()">‹</button>
+                <button class="main-next-btn" onclick="nextTrack()">›</button>
+                <button class="main-volume-btn" id="mainVolumeBtn" onclick="toggleMute()">🔊</button>
+                <label class="main-shuffle-check"><input type="checkbox" id="mainShuffleCheck" onchange="toggleShuffle()"> <span data-i18n="music_shuffle">Shuffle</span></label>
+            </div>
+            <!-- Track List -->
+            <div class="music-list-container" id="musicList">
+                <!-- Tracks loaded dynamically from music/ folder -->
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section services-section" id="services">
+        <div class="head">
+            <div class="sub" data-i18n="services_sub">Join Us</div>
+            <h2 data-i18n="services_title">Our Services</h2>
+            <div class="bar"></div>
+        </div>
+        <div class="svc-grid">
+            <div class="svc-card">
+                <img class="svc-img" src="cdn/files/uploads/10469550/800_67d6d49b86a2f.png" alt="Sunday Worship">
+                <h3 data-i18n="svc1_title">Sunday Worship</h3>
+                <p data-i18n="svc1_desc">Join us every Sunday for a spiritually uplifting worship service that embraces all faiths and traditions.</p>
+            </div>
+            <div class="svc-card">
+                <img class="svc-img" src="cdn/files/uploads/10469550/800_67d775fc3e288.png" alt="Wednesday Service">
+                <h3 data-i18n="svc2_title">Wednesday Service</h3>
+                <p data-i18n="svc2_desc">Join us every Wednesdays for one on one Prophesies with the Prophet</p>
+            </div>
+            <div class="svc-card">
+                <img class="svc-img" src="cdn/files/uploads/10469550/800_67d75f14af312.jpg" alt="Youth Ministry">
+                <h3 data-i18n="svc3_title">Youth Ministry</h3>
+                <p data-i18n="svc3_desc">Our youth ministry provides a safe and engaging environment for young people to learn, grow in the way and teaching of the lord</p>
+            </div>
+            <div class="svc-card">
+                <img class="svc-img" src="cdn/files/uploads/10469550/800_67d75f9642ac1.jpg" alt="Community Outreach">
+                <h3 data-i18n="svc4_title">Community Outreach</h3>
+                <p data-i18n="svc4_desc">Our community outreach programs aim to support and uplift our neighbors through various initiatives and volunteer opportunities.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="section" id="gallery">
+        <div class="head">
+            <div class="sub" data-i18n="gallery_sub">Our Moments</div>
+            <h2 data-i18n="gallery_title">Photo Gallery</h2>
+            <div class="bar"></div>
+        </div>
+        <div class="gal-grid">
+            <div class="pic"><img src="cdn/files/uploads/10469550/2000_67d6d2446a6e9.jpg" alt="Gallery"></div>
+            <div class="pic"><img src="cdn/files/uploads/10469550/2000_67d6d247ae9cb.jpg" alt="Gallery"></div>
+            <div class="pic"><img src="cdn/files/uploads/10469550/2000_67d6d2482f804.jpg" alt="Gallery"></div>
+            <div class="pic"><img src="cdn/files/uploads/10469550/2000_67d6d24831b6e.jpg" alt="Gallery"></div>
+            <div class="pic"><img src="cdn/files/uploads/10469550/2000_67d6d24879303.jpg" alt="Gallery"></div>
+            <div class="pic"><img src="cdn/files/uploads/10469550/2000_67d6d2493ac17.jpg" alt="Gallery"></div>
+            <div class="pic"><img src="cdn/files/uploads/10469550/2000_67d6d249685e5.jpg" alt="Gallery"></div>
+        </div>
+    </section>
+
+    <!-- COMMUNITY POSTS -->
+    <section class="section comm-sec" id="community">
+        <div class="head">
+            <div class="sub" data-i18n="community_sub">Community Feed</div>
+            <h2 data-i18n="community_title">From Our Facebook Group</h2>
+            <div class="bar"></div>
+        </div>
+        <div class="comm-list">
+            <!-- Posts loaded dynamically from posts.json -->
+        </div>
+        <div class="join-box">
+            <h3 data-i18n="join_title">Join Our Facebook Community</h3>
+            <p data-i18n="join_desc">Connect with fellow believers, receive updates, and be part of our growing family on Facebook.</p>
+            <a href="https://www.facebook.com/groups/798617002450170/" target="_blank" rel="noopener noreferrer" class="btn" data-i18n="join_btn">Join the Group</a>
+        </div>
+    </section>
+
+    <!-- TEAM -->
+    <section class="section" id="team">
+        <div class="head">
+            <div class="sub" data-i18n="team_sub">Our Leaders</div>
+            <h2 data-i18n="team_title">Meet Our Pastors</h2>
+            <div class="bar"></div>
+        </div>
+        <div class="team-grid">
+            <div class="tm-card">
+                <div class="photo"><img src="cdn/files/uploads/10469550/800_67d7d55cceb11.png" alt="Mr Tanko"></div>
+                <h3>Mr Tanko</h3>
+                <div class="role" data-i18n="role1">Church Leader</div>
+            </div>
+            <div class="tm-card">
+                <div class="photo"><img src="cdn/files/uploads/10469550/800_67d7d5ec71d26.png" alt="Andrew Chagwa"></div>
+                <h3>Andrew Chagwa</h3>
+                <div class="role" data-i18n="role2">Deacon</div>
+            </div>
+            <div class="tm-card">
+                <div class="photo"><img src="cdn/files/uploads/10469550/800_67d7d63062774.png" alt="Comrade Ndaglaya.Z"></div>
+                <h3>Comrade Ndaglaya.Z</h3>
+                <div class="role" data-i18n="role3">Parent of Youth Ministry Members</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact-section" id="contact">
+        <div class="head">
+            <div class="sub" data-i18n="contact_sub">Reach Out</div>
+            <h2 data-i18n="contact_title">Contact Us</h2>
+            <div class="bar"></div>
+        </div>
+        <div class="ct-wrap">
+            <div>
+                <div class="ct-item">
+                    <div class="ic">📍</div>
+                    <div><h4 data-i18n="contact_location">Our Location</h4><p><a href="https://www.google.com/maps/place/11%C2%B044'56.3%22N+13%C2%B015'19.6%22E" target="_blank" rel="noopener noreferrer">No: 5 Dalori Sabongari Bama Road Maiduguri, Borno State</a></p>
+                    <p style="font-size:0.85rem;color:#888;">Latitude: 11°44'56.31"N, Longitude: 13°15'19.62"E</p></div>
+                </div>
+                <div class="ct-item">
+                    <div class="ic">📞</div>
+                    <div><h4 data-i18n="contact_phone">Phone</h4><p>+234 0803 679 2702</p></div>
+                </div>
+                <div class="ct-item">
+                    <div class="ic">✉️</div>
+                    <div><h4 data-i18n="contact_email">Email</h4><p>dominionglobalchurchonfire@gmail.com</p></div>
+                </div>
+            </div>
+            <form class="ct-form" action="https://formsubmit.co/dominionglobalchurchonfire@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="New message from Dominion Global Church website">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_next" value="#">
+                <input type="text" name="name" placeholder="Your Name" data-i18n-placeholder="form_name" required>
+                <input type="email" name="email" placeholder="Your Email" data-i18n-placeholder="form_email" required>
+                <input type="text" name="subject" placeholder="Subject" data-i18n-placeholder="form_subject">
+                <textarea name="message" placeholder="Your Message" data-i18n-placeholder="form_message" required></textarea>
+                <button class="btn btn-primary" type="submit" data-i18n="form_submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="social-links">
+            <a href="https://www.facebook.com/groups/798617002450170/" target="_blank" rel="noopener noreferrer" title="Facebook">f</a>
+        </div>
+        <p data-i18n="footer_text">&copy; Dominion Global Church On Fire. All rights reserved. | God With Us.</p>
+    </footer>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox">
+        <span class="close" onclick="document.getElementById('lightbox').classList.remove('active')">&times;</span>
+        <img src="" alt="Full size">
+    </div>
+
+    <script>
+        document.querySelectorAll('.pic').forEach(item => {
+            item.addEventListener('click', () => {
+                document.querySelector('#lightbox img').src = item.querySelector('img').src;
+                document.getElementById('lightbox').classList.add('active');
+            });
+        });
+        document.getElementById('lightbox').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) e.currentTarget.classList.remove('active');
+        });
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', function(e) {
+                e.preventDefault();
+                const t = document.querySelector(this.getAttribute('href'));
+                if (t) {
+                    const offset = 110;
+                    const top = t.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({ top: top, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+    <script>
+        var mainAudio = new Audio();
+        var currentTrackIndex = -1;
+        var isMuted = false;
+        var shuffleMode = false;
+        var musicFiles = [
+            'A Symphony.mp3',
+            'Already Loved.mp3',
+            'Amen-Amen.mp3',
+            'Anendlessocean.mp3',
+            'Awake Alive.mp3',
+            'Be Praise.mp3',
+            'Beautiful .mp3',
+            'Before.mp3',
+            'Better Hallelujah.mp3',
+            'Better Sober.mp3',
+            'Blood Pressure.mp3',
+            'Blue.mp3',
+            'Boomin.mp3',
+            'BornAgain.mp3',
+            'Breath Deep.mp3',
+            'Brick for Brick.mp3',
+            'Bring Me Down.mp3',
+            'Bulletproof.mp3',
+            'Burn For You.mp3',
+            'By Myself.mp3',
+            'Change World.mp3',
+            'Changed Forever.mp3',
+            'Children Of God.mp3',
+            'Cry Out To Jesus.mp3',
+            'Doing Time.mp3',
+            'Drums Base.mp3',
+            'Elevation Worship.mp3',
+            'Emannuel.mp3',
+            'Empty.mp3',
+            'Faded.mp3',
+            'Free 2 Be Me.mp3',
+            'From The Line.mp3',
+            'Gabe Real.mp3',
+            'God Is On The Move.mp3',
+            'God Of Wonders.mp3',
+            'Grace Wins.mp3',
+            'Greatness Of Our God.mp3',
+            'Hands.mp3',
+            'He Knows.mp3',
+            'He Reigns.mp3',
+            'He Still Does.mp3',
+            'Heaven On Earth.mp3',
+            'Hold Me.mp3',
+            'Holy Of holies.mp3',
+            'Holy Spirit.mp3',
+            'Hotel Rooms.mp3',
+            'I Came For You.mp3',
+            'I Could Get Used To This.mp3',
+            'I Feel So Alive.mp3',
+            'I Surrender.mp3',
+            'Im For You.mp3',
+            'IMELA (Thank You).mp3',
+            'Indescribable.mp3',
+            'Its Gonna Happen.mp3',
+            'Jesus Is The Lord.mp3',
+            'Jesus King Of Kings.mp3',
+            'Just Like You.mp3',
+            'JustWannaSay.mp3',
+            'Kibaku (chibok).mp3',
+            'Light Up.mp3',
+            'Lose My Soul.mp3',
+            'Mad At Today.mp3',
+            'Marghi.mp3',
+            'Margi tribal.mp3',
+            'Maybe Midnight.mp3',
+            'Music.mp3',
+            'My Arms.mp3',
+            'My Story.mp3',
+            'New Day.mp3',
+            'No Limitations.mp3',
+            'No One Like You.mp3',
+            'Noble_G_Abba.mp3',
+            'Not What You See.mp3',
+            'O Praise Him.mp3',
+            'Obinigwe.mp3',
+            'Ocean Floor.mp3',
+            'Odami Loju.mp3',
+            'Omemma.mp3',
+            'On My Alter.mp3',
+            'Perfect Love.mp3',
+            'Praise Song with Lute.mp3',
+            'Pray For Me.mp3',
+            'Promise.mp3',
+            'Promises.mp3',
+            'Reborn.mp3',
+            'Red Letters.mp3',
+            'Remind Me Who I Am.mp3',
+            'Revival.mp3',
+            'Rinsed In Blood.mp3',
+            'Secret Weapon.mp3',
+            'Shake.mp3',
+            'Shut Me Out.mp3',
+            'Sparrows.mp3',
+            'Speak Life.mp3',
+            'Spotlight-1.mp3',
+            'Spotlight-2.mp3',
+            'Stampley.mp3',
+            'Static.mp3',
+            'Still Here.mp3',
+            'Still.mp3',
+            'Strong Tower.mp3',
+            'Surely.mp3',
+            'Thank You Jesus.mp3',
+            'The Comeback.mp3',
+            "The One We've Waited For.mp3",
+            'The River.mp3',
+            'There For You.mp3',
+            'Those Who Belong.mp3',
+            'Through It All.mp3',
+            'Tonight.mp3',
+            'Tsidkenu.mp3',
+            'Turn It Up.mp3',
+            'Unstoppable God.mp3',
+            'Wageni.mp3',
+            'Wait For Me.mp3',
+            'Wake Up.mp3',
+            'War Cry.mp3',
+            'We Glorify Your Name.mp3',
+            'Whatever It Takes.mp3',
+            'When The Healing Comes.mp3',
+            'Witness.mp3',
+            'Work.mp3',
+            'You Are For Me.mp3',
+            'You Are Good.mp3',
+            'You Are More.mp3',
+            'Your Love Awakens.mp3',
+            'Your Name Is Jehovah.mp3',
+            'Zion.mp3',
+            'Zumuntan.mp3'
+        ];
+        function formatTrackName(filename) {
+            var name = filename.replace('.mp3', '');
+            name = name.replace(/[_-]/g, ' ');
+            return name;
+        }
+        function formatTime(seconds) {
+            if (isNaN(seconds) || seconds < 0) return '0:00';
+            var mins = Math.floor(seconds / 60);
+            var secs = Math.floor(seconds % 60);
+            return mins + ':' + (secs < 10 ? '0' : '') + secs;
+        }
+        function loadMusicList() {
+            var container = document.getElementById('musicList');
+            if (!container) return;
+            musicFiles.sort(function(a, b) { return a.toLowerCase().localeCompare(b.toLowerCase()); });
+            for (var i = 0; i < musicFiles.length; i++) {
+                var file = musicFiles[i];
+                var track = document.createElement('div');
+                track.className = 'music-track';
+                track.setAttribute('data-index', i);
+                track.onclick = (function(idx) { return function() { selectTrack(idx); }; })(i);
+                track.innerHTML = '<div class="music-track-number">' + (i + 1) + '</div>' +
+                    '<div class="music-track-info">' +
+                    '<div class="music-track-title">' + formatTrackName(file) + '</div>' +
+                    '<div class="music-track-artist" data-i18n="music_artist">Worship Song</div>' +
+                    '</div>';
+                container.appendChild(track);
+            }
+            // Setup main audio events
+            mainAudio.addEventListener('timeupdate', function() {
+                var progress = document.getElementById('mainProgressFill');
+                var timeDisplay = document.getElementById('mainPlayerTime');
+                if (progress && mainAudio.duration) {
+                    progress.style.width = (mainAudio.currentTime / mainAudio.duration * 100) + '%';
+                }
+                if (timeDisplay) {
+                    timeDisplay.textContent = formatTime(mainAudio.currentTime) + ' / ' + formatTime(mainAudio.duration);
+                }
+            });
+            mainAudio.addEventListener('ended', function() {
+                playNext();
+            });
+            mainAudio.addEventListener('play', function() {
+                document.getElementById('mainPlayBtn').textContent = '⏸';
+            });
+            mainAudio.addEventListener('pause', function() {
+                document.getElementById('mainPlayBtn').textContent = '▶';
+            });
+        }
+        function selectTrack(index) {
+            currentTrackIndex = index;
+            mainAudio.src = 'music/' + musicFiles[index];
+            mainAudio.play();
+            document.getElementById('mainPlayerTitle').textContent = formatTrackName(musicFiles[index]);
+            // Update active track highlight
+            var tracks = document.querySelectorAll('.music-track');
+            tracks.forEach(function(t) { t.classList.remove('active'); });
+            if (tracks[index]) tracks[index].classList.add('active');
+        }
+        function toggleMainPlay() {
+            if (!mainAudio.src) {
+                selectTrack(0);
+                return;
+            }
+            if (mainAudio.paused) {
+                mainAudio.play();
+            } else {
+                mainAudio.pause();
+            }
+        }
+        function seekAudio(event) {
+            if (!mainAudio.duration) return;
+            var container = document.getElementById('mainProgressContainer');
+            var rect = container.getBoundingClientRect();
+            var percent = (event.clientX - rect.left) / rect.width;
+            mainAudio.currentTime = percent * mainAudio.duration;
+        }
+        function toggleMute() {
+            isMuted = !isMuted;
+            mainAudio.muted = isMuted;
+            document.getElementById('mainVolumeBtn').textContent = isMuted ? '🔇' : '🔊';
+        }
+        function prevTrack() {
+            var prevIndex = currentTrackIndex - 1;
+            if (prevIndex < 0) prevIndex = musicFiles.length - 1;
+            selectTrack(prevIndex);
+        }
+        function nextTrack() {
+            playNext();
+        }
+        function playNext() {
+            if (shuffleMode) {
+                playRandom();
+            } else {
+                var nextIndex = currentTrackIndex + 1;
+                if (nextIndex >= musicFiles.length) nextIndex = 0;
+                selectTrack(nextIndex);
+            }
+        }
+        function toggleShuffle() {
+            var chk = document.getElementById('mainShuffleCheck');
+            shuffleMode = chk.checked;
+        }
+        function playRandom() {
+            var newIndex;
+            do {
+                newIndex = Math.floor(Math.random() * musicFiles.length);
+            } while (newIndex === currentTrackIndex && musicFiles.length > 1);
+            selectTrack(newIndex);
+        }
+        window.addEventListener('DOMContentLoaded', loadMusicList);
+    </script>
+    <script src="cdn/js/load-posts.js"></script>
+    <script>
+        var translations = {
+            en: {
+                nav_home: "Home",
+                nav_about: "About",
+                nav_music: "Praise & Worship",
+                nav_services: "Services",
+                nav_gallery: "Gallery",
+                nav_community: "Community",
+                nav_contact: "Contact Us",
+                hero_tag: "God With Us",
+                hero_title: "Welcome to<br><span>Dominion Global Church On Fire</span>",
+                hero_desc: "A vibrant, Spirit-filled community where everyone is welcome. Come experience the love of God through worship, fellowship, and service.",
+                hero_btn1: "Service Times",
+                hero_btn2: "Learn More",
+                welcome_verse: "\"For God so loved the world, that he gave his only Son, that whoever believes in him should not perish but have eternal life.\"",
+                welcome_ref: "John 3:16",
+                about_title: "God With Us Then & Now",
+                about_p1: "Emmanuel means \"God with us\" – and that's the heart of everything we do. We believe God is actively present in our worship, our community, and our daily lives.",
+                about_p2: "Founded over a decade ago, Dominion Global Church On Fire has grown from a small home fellowship to a thriving community of believers. Yet our mission remains the same: to share the love of Jesus Christ with everyone we meet.",
+                about_p3: "We offer vibrant worship, practical teaching, and genuine relationships. No matter where you are in your journey, there's a place for you at Dominion Global Church On Fire.",
+                services_sub: "Join Us",
+                services_title: "Our Services",
+                svc1_title: "Sunday Worship",
+                svc1_desc: "Join us every Sunday for a spiritually uplifting worship service that embraces all faiths and traditions.",
+                svc2_title: "Wednesday Service",
+                svc2_desc: "Join us every Wednesdays for one on one Prophesies with the Prophet",
+                svc3_title: "Youth Ministry",
+                svc3_desc: "Our youth ministry provides a safe and engaging environment for young people to learn, grow in the way and teaching of the lord",
+                svc4_title: "Community Outreach",
+                svc4_desc: "Our community outreach programs aim to support and uplift our neighbors through various initiatives and volunteer opportunities.",
+                gallery_sub: "Our Moments",
+                gallery_title: "Photo Gallery",
+                community_sub: "Community Feed",
+                community_title: "From Our Facebook Group",
+                join_title: "Join Our Facebook Community",
+                join_desc: "Connect with fellow believers, receive updates, and be part of our growing family on Facebook.",
+                join_btn: "Join the Group",
+                team_sub: "Our Leaders",
+                team_title: "Meet Our Pastors",
+                role1: "Church Leader",
+                role2: "Deacon",
+                role3: "Parent of Youth Ministry Members",
+                contact_sub: "Reach Out",
+                contact_title: "Contact Us",
+                contact_location: "Our Location",
+                contact_phone: "Phone",
+                contact_email: "Email",
+                form_name: "Your Name",
+                form_email: "Your Email",
+                form_subject: "Subject",
+                form_message: "Your Message",
+                form_submit: "Send Message",
+                footer_text: "&copy; Dominion Global Church On Fire. All rights reserved. | God With Us.",
+                music_sub: "Worship Music",
+                music_title: "Praise & Worship",
+                music_artist: "Worship Song",
+                music_select: "Select a track",
+                music_shuffle: "Shuffle"
+            },
+            ha: {
+                nav_home: "Gida",
+                nav_about: "Game da mu",
+                nav_music: "Yabo da Ibadar",
+                nav_services: "Ayyuka",
+                nav_gallery: "Hoto",
+                nav_community: "Al'umma",
+                nav_contact: "Tuntu mu",
+                hero_tag: "Uban da mu",
+                hero_title: "Barka da zuwa<br><span>Dominion Global Church On Fire</span>",
+                hero_desc: "Al'umma mai ƙarfin Ruhu inda ake ɗaukar kowa. Ku zo ku samu ƙaunar Allah ta hanyar ibada, haduwa, da hidima.",
+                hero_btn1: "Lokacin Ayyuka",
+                hero_btn2: "Kari",
+                welcome_verse: "\"Domin Allah ya yi ƙaunar duniya, ya ba da ɗansa kawai, domin kowa da ya yi imani da shi bai rasu ba sai ya sami rayuwa ta har abada.\"",
+                welcome_ref: "Yohanna 3:16",
+                about_title: "Uban da mu Tun da Wancan Lokaci Zuwa Yau",
+                about_p1: "Emmanuel yana nufin \"Allah da mu\" – kuma wannan shine zuciya na abubuwan da muke yi. Muna imani cewa Allah yana cikin ibadar mu, al'ummarmu, da rayuwarmu ta yau da kullum.",
+                about_p2: "An kafa Dominion Global Church On Fire a shekara da ya wuce, daga ƙaramin haduwar gida ya girma ya zama al'umma mai ƙarfin imani. Amma burinmu bai canza ba: in mu ba da ƙaunar Yesu ga kowa da muke haɗuwa.",
+                about_p3: "Muna ba da ibada mai ƙarfi, koyarwa mai amfani, da alaƙa na ainihi. Ko inda kake a tafiyrinka, akwai wuri maka a Dominion Global Church On Fire.",
+                services_sub: "Shirce mu",
+                services_title: "Ayyukarmu",
+                svc1_title: "Ibadar Laraba",
+                svc1_desc: "Ku zo mu a kowace Laraba don ibada mai ƙarfin ruhu da ke ɗaukar dukkan addu'o'i da addinin.",
+                svc2_title: "Aikin Laraba",
+                svc2_desc: "Ku zo mu a kowace Laraba don wahayi daya da daya da Annabi",
+                svc3_title: "Hidimar Matasa",
+                svc3_desc: "Hidimar matasarmu tana ba da muhalli mai tsaro da son kai ga matasa don koyi, girma a hanyar koyarwar Uba",
+                svc4_title: "Bude Al'umma",
+                svc4_desc: "Shirye-shiryen bude al'ummarmu suna neman goyan bayan da kuma ƙarfafa makwabta ta hanyar dabaru da damar ta'allaro.",
+                gallery_sub: "Lokacirmu",
+                gallery_title: "Hoto",
+                community_sub: "Labaran Al'umma",
+                community_title: "Daga Ƙungiyar Facebook",
+                join_title: "Shiga Al'ummar Facebook",
+                join_desc: "Haɗu da 'yan imani, karɓi sabbin labarai, kuma zama ɓangare na iyalarmu da ke girma a Facebook.",
+                join_btn: "Shiga Ƙungiya",
+                team_sub: "Shugabannmu",
+                team_title: "San Mal'amanmu",
+                role1: "Shugaban Cocin",
+                role2: "Diyakona",
+                role3: "Mai Gida na ƙungiyar Matasa",
+                contact_sub: "Tuntu mu",
+                contact_title: "Tuntu mu",
+                contact_location: "Wurinmu",
+                contact_phone: "Lambar",
+                contact_email: "Imel",
+                form_name: "Sunanka",
+                form_email: "Imel Naka",
+                form_subject: "Babu",
+                form_message: "Sako Naka",
+                form_submit: "Aika Sako",
+                footer_text: "&copy; Dominion Global Church On Fire. Duk haƙƙoƙi an kiyaye su. | Uban da mu.",
+                music_sub: "Waƙar Ibadar",
+                music_title: "Yabo da Ibadar",
+                music_artist: "Waƙar Ibadar",
+                music_select: "Zaɓi waƙa",
+                music_shuffle: "Rabe-rabe"
+            },
+            kan: {
+                nav_home: "Kǝrə",
+                nav_about: "Ró Kǝrə",
+                nav_music: "Yabo da Àbàttə́",
+                nav_services: "Àbàttə́",
+                nav_gallery: "Fotǝ",
+                nav_community: "Kǝlanǝ",
+                nav_contact: "Nawro Kǝla",
+                hero_tag: "Álà Kǝrə Bǝ",
+                hero_title: "Nda Watu<br><span>Dominion Global Church On Fire</span>",
+                hero_desc: "Kǝlanǝ ro Álà kǝrə bǝ, kǝrə kǝrə kǝrə kǝrə. Kǝrə àbàttə́ ro kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə.",
+                hero_btn1: "Àbàttə́ Wakti",
+                hero_btn2: "Kǝrə Kǝrə",
+                welcome_verse: "\"Álà dina raakna, kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə.\"",
+                welcome_ref: "Yohanna 3:16",
+                about_title: "Álà Kǝrə Bǝ Kǝrə Kǝrə",
+                about_p1: "Emmanuel ro Álà kǝrə bǝ – kǝrə kǝrə kǝrə kǝrə kǝrə. Kǝrə àbàttə́ kǝrə kǝrə kǝrə kǝrə kǝrə.",
+                about_p2: "Dominion Global Church On Fire kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə.",
+                about_p3: "Kǝrə àbàttə́ kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə.",
+                services_sub: "Kǝrə Kǝrə",
+                services_title: "Àbàttə́ Kǝrə",
+                svc1_title: "Ahad Àbàttə́",
+                svc1_desc: "Kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə.",
+                svc2_title: "Rabu Àbàttə́",
+                svc2_desc: "Kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə.",
+                svc3_title: "Kǝlanǝ Àbàttə́",
+                svc3_desc: "Kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə.",
+                svc4_title: "Kǝlanǝ Kǝrə",
+                svc4_desc: "Kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə.",
+                gallery_sub: "Kǝrə Kǝrə",
+                gallery_title: "Fotǝ Kǝrə",
+                community_sub: "Kǝlanǝ Kǝrə",
+                community_title: "Facebook Kǝrə",
+                join_title: "Facebook Kǝlanǝ",
+                join_desc: "Kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə kǝrə.",
+                join_btn: "Kǝrə Kǝrə",
+                team_sub: "Fàdá Kǝrə",
+                team_title: "Fàdá Kǝrə",
+                role1: "Cócì Fàdá",
+                role2: "Diyakona",
+                role3: "Kǝlanǝ Àbàttə́",
+                contact_sub: "Nawro Kǝla",
+                contact_title: "Nawro Kǝla",
+                contact_location: "Kǝrə Kǝrə",
+                contact_phone: "Wáyà",
+                contact_email: "Email",
+                form_name: "Kǝrə Kǝrə",
+                form_email: "Email Kǝrə",
+                form_subject: "Kǝrə",
+                form_message: "Kǝrə Kǝrə",
+                form_submit: "Kǝrə Kǝrə",
+                footer_text: "&copy; Dominion Global Church On Fire. Kǝrə kǝrə kǝrə. | Álà Kǝrə Bǝ.",
+                music_sub: "Àbàttə́ Kǝrə",
+                music_title: "Yabo da Àbàttə́",
+                music_artist: "Àbàttə́ Kǝrə",
+                music_select: "Kǝrə Kǝrə",
+                music_shuffle: "Kǝrə Kǝrə"
+            },
+            shu: {
+                nav_home: "أول",
+                nav_about: "عن نحن",
+                nav_music: "المجد والعبادة",
+                nav_services: "خدمة",
+                nav_gallery: "صورة",
+                nav_community: "مجتمع",
+                nav_contact: "تواصل معنا",
+                hero_tag: "الله معنا",
+                hero_title: "أهلاً بكم في<br><span>Dominion Global Church On Fire</span>",
+                hero_desc: "مجتمع روحاني حيث الجميع مرحب بهم. تعالوا تجربوا حب الله من خلال العبادة والأخوة والخدمة.",
+                hero_btn1: "أوقات الخدمة",
+                hero_btn2: "أكثر",
+                welcome_verse: "\"لأن الله أحب العالم حتى أعطى ابنه الوحيد، حتى كل من يؤمن به لا يهلك بل يكون له حياة أبدية.\"",
+                welcome_ref: "يوحنا 3:16",
+                about_title: "الله معنا من قبل إلى الآن",
+                about_p1: "إمmanuel يعني \"الله معنا\" – وهذا هو قلب كل ما نفعله. نؤمن أن الله موجود في عبادتنا ومجتمعنا وحياتنا اليومية.",
+                about_p2: "تأسست Dominion Global Church On Fire قبل أكثر من عشر سنوات، نمت من تجمع صغير في البيت إلى مجتمع مؤمنين مزدهر. لكن مهمتنا تبقى نفسها: نشر حب يسوع المسيح لكل من نلتقي بهم.",
+                about_p3: "نقدم عبادة حية وتعليم عملي وعلاقات حقيقية. أينما كنت في رحلتك، هناك مكان لك في Dominion Global Church On Fire.",
+                services_sub: "انضموا لنا",
+                services_title: "خدماتنا",
+                svc1_title: "عبادة الأحد",
+                svc1_desc: "انضموا لنا كل أحد لخدمة عبادة روحانية تحتضن جميع الأديان والتقاليد.",
+                svc2_title: "خدمة الأربعاء",
+                svc2_desc: "انضموا لنا كل أربعاء للنبوءات الفردية مع النبي",
+                svc3_title: "خدمة الشباب",
+                svc3_desc: "خدمة الشباب توفر بيئة آمنة وممتعة للشباب ليتعلموا وينموا في طريق وتعليم الرب",
+                svc4_title: "الخدمة المجتمعية",
+                svc4_desc: "برامج الخدمة المجتمعية تهدف لدعم ورفع جيراننا من خلال مبادرات وفرص تطوعية مختلفة.",
+                gallery_sub: "لحظاتنا",
+                gallery_title: "معرض الصور",
+                community_sub: "مجتمعنا",
+                community_title: "من مجموعة فيسبوك",
+                join_title: "انضم لمجتمع فيسبوك",
+                join_desc: "تواصل مع المؤمنين، استقبل التحديثات، وكن جزء من عائلتنا المتنامية على فيسبوك.",
+                join_btn: "انضم للمجموعة",
+                team_sub: "قادتنا",
+                team_title: "تعرف على رعاتنا",
+                role1: "قائد الكنيسة",
+                role2: "شمامس",
+                role3: "ولي أمر أعضاء خدمة الشباب",
+                contact_sub: "تواصل معنا",
+                contact_title: "تواصل معنا",
+                contact_location: "موقعنا",
+                contact_phone: "هاتف",
+                contact_email: "بريد",
+                form_name: "اسمك",
+                form_email: "بريدك",
+                form_subject: "موضوع",
+                form_message: "رسالتك",
+                form_submit: "أرسل رسالة",
+                footer_text: "&copy; Dominion Global Church On Fire. جميع الحقوق محفوظة. | الله معنا.",
+                music_sub: "موسيقى العبادة",
+                music_title: "المجد والعبادة",
+                music_artist: "موسيقى عبادة",
+                music_select: "اختر أغنية",
+                music_shuffle: "عشوائي"
+            }
+        };
+        var isChangingLang = false;
+        function changeLanguage(lang) {
+            if (isChangingLang) return;
+            var t = translations[lang];
+            if (!t) return;
+            isChangingLang = true;
+            document.querySelectorAll('[data-i18n]').forEach(function(el) {
+                var key = el.getAttribute('data-i18n');
+                if (t[key]) el.innerHTML = t[key];
+            });
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el) {
+                var key = el.getAttribute('data-i18n-placeholder');
+                if (t[key]) el.placeholder = t[key];
+            });
+            localStorage.setItem('siteLang', lang);
+            document.getElementById('langSelect').value = lang;
+            if (typeof window.refreshPosts === 'function') window.refreshPosts(lang);
+            isChangingLang = false;
+        }
+        (function() {
+            var saved = localStorage.getItem('siteLang');
+            if (saved && translations[saved]) changeLanguage(saved);
+            else document.getElementById('langSelect').value = 'en';
+            document.getElementById('langSelect').addEventListener('change', function() {
+                changeLanguage(this.value);
+            });
+        })();
+    </script>
+</body>
+</html>
