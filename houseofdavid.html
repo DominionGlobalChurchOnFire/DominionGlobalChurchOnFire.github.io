@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="dark">
   <title>House of David</title>
+  <link rel="shortcut icon" href="cdn/files/uploads/10469550/FavIcon.png" type="image/jpeg">
+  <link rel="icon" href="cdn/files/uploads/10469550/FavIcon.png" type="image/jpeg">
+  <link rel="apple-touch-icon" sizes="152x152" href="cdn/files/uploads/10469550/FavIcon.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="cdn/files/uploads/10469550/FavIcon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="cdn/files/uploads/10469550/FavIcon.png">
   <style>
     :root {
       --bg: #08090d;
@@ -438,10 +443,6 @@
       background: #000;
     }
 
-    .video-frame.is-stopped iframe {
-      visibility: hidden;
-    }
-
     .stage-overlay {
       position: absolute;
       inset: 0;
@@ -476,37 +477,14 @@
       margin: 0;
     }
 
-    .overlay-title {
-      font-size: 1rem;
-      font-weight: 700;
-    }
-
-    .overlay-text,
     .loading-overlay p {
       color: var(--muted);
       font-size: 0.78rem;
     }
 
-    .stopped-icon {
-      display: grid;
-      width: 54px;
-      height: 54px;
-      margin-bottom: 2px;
-      place-items: center;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.04);
-    }
-
-    .stopped-icon svg {
-      width: 18px;
-      height: 18px;
-      fill: var(--muted);
-    }
-
     .controls {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 10px;
       padding: 16px 18px 12px;
     }
@@ -558,24 +536,6 @@
     .control-btn:disabled {
       cursor: not-allowed;
       opacity: 0.32;
-    }
-
-    .control-btn.primary {
-      border-color: transparent;
-      background: linear-gradient(135deg, var(--accent), var(--accent-warm));
-      color: white;
-      box-shadow: 0 8px 22px rgba(255, 89, 100, 0.2);
-    }
-
-    .control-btn.primary:hover:not(:disabled) {
-      border-color: transparent;
-      background: linear-gradient(135deg, #ff6872, #ff875d);
-      box-shadow: 0 10px 26px rgba(255, 89, 100, 0.27);
-    }
-
-    .control-btn.primary svg {
-      width: 15px;
-      height: 15px;
     }
 
     .player-meta {
@@ -793,7 +753,7 @@
         </div>
 
         <div class="video-shell">
-          <div class="video-frame" id="videoFrame">
+          <div class="video-frame">
             <iframe
               id="playerFrame"
               title="Episode video player"
@@ -806,39 +766,15 @@
               <span class="spinner" aria-hidden="true"></span>
               <p>Loading episode…</p>
             </div>
-
-            <div class="stage-overlay stopped-overlay" id="stoppedOverlay" hidden>
-              <span class="stopped-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" focusable="false">
-                  <rect x="6" y="6" width="12" height="12" rx="1.5"/>
-                </svg>
-              </span>
-              <p class="overlay-title">Playback stopped</p>
-              <p class="overlay-text">Press Play to reload this episode.</p>
-            </div>
           </div>
         </div>
 
-        <div class="controls" role="group" aria-label="Episode navigation and playback controls">
+        <div class="controls" role="group" aria-label="Episode navigation">
           <button class="control-btn" id="prevBtn" type="button">
             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
               <path d="M6 5h2v14H6zM19 5v14l-9-7 9-7z"/>
             </svg>
             <span>Previous</span>
-          </button>
-
-          <button class="control-btn" id="stopBtn" type="button">
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <rect x="6" y="6" width="12" height="12" rx="1.5"/>
-            </svg>
-            <span>Stop</span>
-          </button>
-
-          <button class="control-btn primary" id="playBtn" type="button">
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.1-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14Z"/>
-            </svg>
-            <span>Play</span>
           </button>
 
           <button class="control-btn" id="nextBtn" type="button">
@@ -850,7 +786,7 @@
         </div>
 
         <div class="player-meta">
-          <p class="shortcuts">Use <kbd>←</kbd> <kbd>→</kbd> for episodes and <kbd>Space</kbd> to play or stop.</p>
+          <p class="shortcuts">Use <kbd>←</kbd> <kbd>→</kbd> to move between episodes.</p>
           <p class="position-label" id="positionLabel">1 / 8</p>
         </div>
       </section>
@@ -874,23 +810,17 @@
 
       var episodeList = document.getElementById("episodeList");
       var playerFrame = document.getElementById("playerFrame");
-      var videoFrame = document.getElementById("videoFrame");
       var loadingOverlay = document.getElementById("loadingOverlay");
-      var stoppedOverlay = document.getElementById("stoppedOverlay");
       var currentTitle = document.getElementById("currentTitle");
       var currentSubtitle = document.getElementById("currentSubtitle");
       var nowStatus = document.getElementById("nowStatus");
       var driveLink = document.getElementById("driveLink");
       var positionLabel = document.getElementById("positionLabel");
       var prevBtn = document.getElementById("prevBtn");
-      var stopBtn = document.getElementById("stopBtn");
-      var playBtn = document.getElementById("playBtn");
       var nextBtn = document.getElementById("nextBtn");
 
       var state = {
-        current: 0,
-        stopped: false,
-        loaded: false
+        current: 0
       };
 
       var loadTimer = null;
@@ -969,31 +899,21 @@
 
         prevBtn.disabled = state.current === 0;
         nextBtn.disabled = state.current === episodes.length - 1;
-        stopBtn.disabled = state.stopped;
       }
 
       function beginLoading() {
         var episode = episodes[state.current];
 
         window.clearTimeout(loadTimer);
-        state.loaded = false;
-        state.stopped = false;
-        videoFrame.classList.remove("is-stopped");
-        stoppedOverlay.hidden = true;
         loadingOverlay.hidden = false;
         nowStatus.textContent = "Loading…";
-        stopBtn.disabled = false;
 
         playerFrame.title = episode.title + " — " + episode.subtitle;
         playerFrame.src = previewUrl(episode);
 
         loadTimer = window.setTimeout(function () {
-          if (!state.stopped) {
-            state.loaded = true;
-            loadingOverlay.hidden = true;
-            nowStatus.textContent = "Now loaded";
-            stopBtn.disabled = false;
-          }
+          loadingOverlay.hidden = true;
+          nowStatus.textContent = "Now loaded";
         }, 12000);
       }
 
@@ -1012,32 +932,6 @@
         }
       }
 
-      function stopPlayback() {
-        if (state.stopped) {
-          return;
-        }
-
-        window.clearTimeout(loadTimer);
-        state.loaded = false;
-        state.stopped = true;
-        playerFrame.src = "about:blank";
-        videoFrame.classList.add("is-stopped");
-        loadingOverlay.hidden = true;
-        stoppedOverlay.hidden = false;
-        nowStatus.textContent = "Playback stopped";
-        stopBtn.disabled = true;
-      }
-
-      function playCurrent() {
-        if (state.stopped || !state.loaded) {
-          beginLoading();
-          return;
-        }
-
-        playerFrame.focus();
-        nowStatus.textContent = "Ready — press play in the video";
-      }
-
       function goPrevious() {
         if (state.current > 0) {
           selectEpisode(state.current - 1);
@@ -1051,20 +945,12 @@
       }
 
       playerFrame.addEventListener("load", function () {
-        if (state.stopped) {
-          return;
-        }
-
         window.clearTimeout(loadTimer);
-        state.loaded = true;
         loadingOverlay.hidden = true;
         nowStatus.textContent = "Now loaded";
-        stopBtn.disabled = false;
       });
 
       prevBtn.addEventListener("click", goPrevious);
-      stopBtn.addEventListener("click", stopPlayback);
-      playBtn.addEventListener("click", playCurrent);
       nextBtn.addEventListener("click", goNext);
 
       document.addEventListener("keydown", function (event) {
@@ -1085,17 +971,6 @@
           if (!nextBtn.disabled) {
             event.preventDefault();
             goNext();
-          }
-        } else if (event.key === " " || event.code === "Space") {
-          var isButtonOrLink = target && target.closest && target.closest("button, a");
-
-          if (!isButtonOrLink) {
-            event.preventDefault();
-            if (state.stopped) {
-              playCurrent();
-            } else {
-              stopPlayback();
-            }
           }
         }
       });
