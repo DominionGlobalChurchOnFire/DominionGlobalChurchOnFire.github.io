@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+- Centered the social links in the top bar after removing the address and phone number.
+- Show the hamburger navigation at viewport widths of 1070px and below.
+- Applied the pill-shaped hover background consistently to all navbar links, including “Contact Us.”
+- Arranged the desktop navigation into two rows between 1071px and 1520px wide.
+- Kept the church name on one line and collapsed the navigation at tablet widths to prevent overlap with the contact bar.
+- Kept the navbar “Contact Us” button label on one line at desktop and tablet widths.
 - Set the House of David download link to open in a new tab.
 - Added a House of David download button that follows the selected episode.
 - Added Season 2 episodes 1–8 to the House of David playlist.
