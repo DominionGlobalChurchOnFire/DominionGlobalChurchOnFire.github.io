@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Set the House of David download link to open in a new tab.
+- Added a House of David download button that follows the selected episode.
 - Added Season 2 episodes 1–8 to the House of David playlist.
 - Moved the Praise & Worship playlist scrollbar to the left and added a selected-song download link.
 - Reduced the visible Praise & Worship song list to three songs while keeping scrolling enabled.

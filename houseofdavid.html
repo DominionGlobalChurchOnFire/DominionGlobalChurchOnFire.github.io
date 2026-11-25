@@ -484,7 +484,7 @@
 
     .controls {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 10px;
       padding: 16px 18px 12px;
     }
@@ -503,6 +503,7 @@
       font-size: 0.78rem;
       font-weight: 700;
       line-height: 1;
+      text-decoration: none;
       cursor: pointer;
       transition:
         background 160ms ease,
@@ -783,6 +784,10 @@
             </svg>
             <span>Next</span>
           </button>
+
+          <a class="control-btn" id="downloadLink" href="#" target="_blank" rel="noopener">
+            <span>Download</span>
+          </a>
         </div>
 
         <div class="player-meta">
@@ -823,6 +828,7 @@
       var currentSubtitle = document.getElementById("currentSubtitle");
       var nowStatus = document.getElementById("nowStatus");
       var driveLink = document.getElementById("driveLink");
+      var downloadLink = document.getElementById("downloadLink");
       var positionLabel = document.getElementById("positionLabel");
       var prevBtn = document.getElementById("prevBtn");
       var nextBtn = document.getElementById("nextBtn");
@@ -839,6 +845,10 @@
 
       function viewUrl(episode) {
         return "https://drive.google.com/file/d/" + episode.id + "/view";
+      }
+
+      function downloadUrl(episode) {
+        return "https://drive.google.com/uc?export=download&id=" + encodeURIComponent(episode.id);
       }
 
       function renderPlaylist() {
@@ -904,6 +914,8 @@
         positionLabel.textContent = (state.current + 1) + " / " + episodes.length;
         driveLink.href = viewUrl(episode);
         driveLink.setAttribute("aria-label", "Open " + episode.title + " in Google Drive");
+        downloadLink.href = downloadUrl(episode);
+        downloadLink.setAttribute("aria-label", "Download " + episode.title + ", " + episode.subtitle);
 
         prevBtn.disabled = state.current === 0;
         nextBtn.disabled = state.current === episodes.length - 1;
