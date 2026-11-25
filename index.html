@@ -432,13 +432,18 @@
         .main-shuffle-check input[type="checkbox"] { width: 16px; height: 16px; cursor: pointer; accent-color: #2196F3; }
         
         /* TRACK LIST */
-        .music-list-container { max-height: 336px; overflow-y: auto; padding-right: 5px; }
+        .music-list-layout { display: flex; align-items: stretch; gap: 12px; }
+        .music-list-container { flex: 1; min-width: 0; max-height: 207px; overflow-y: auto; direction: rtl; padding-left: 5px; }
         .music-list-container::-webkit-scrollbar { width: 8px; }
         .music-list-container::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); border-radius: 4px; }
         .music-list-container::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px; }
         .music-list-container::-webkit-scrollbar-thumb:hover { background: var(--accent); }
         .music-list-container { scrollbar-width: thin; scrollbar-color: var(--primary) rgba(255,255,255,0.05); }
-        .music-track { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 8px; cursor: pointer; transition: background 0.2s; margin-bottom: 4px; }
+        .music-download-panel { display: flex; flex: 0 0 120px; flex-direction: column; align-items: stretch; gap: 8px; }
+        .music-download-panel [hidden] { display: none; }
+        .music-download-button { padding: 8px 10px; text-align: center; }
+        .music-download-title { color: rgba(255,255,255,0.75); font-size: 0.8rem; text-align: center; overflow-wrap: anywhere; }
+        .music-track { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 8px; cursor: pointer; transition: background 0.2s; margin-bottom: 4px; direction: ltr; }
         .music-track:hover { background: rgba(255,255,255,0.08); }
         .music-track.active { background: rgba(255,255,255,0.12); }
         .music-track-number { color: rgba(255,255,255,0.4); font-size: 0.8rem; width: 24px; text-align: center; flex-shrink: 0; }
@@ -456,7 +461,10 @@
             .main-player-info { max-width: 100px; }
             .main-player-time { min-width: 70px; font-size: 0.7rem; }
             .main-progress-container { order: 10; width: calc(100% - 24px); margin: 4px 12px 0; }
-            .music-list-container { max-height: 250px; }
+            .music-list-container { max-height: 207px; }
+            .music-list-layout { gap: 8px; }
+            .music-download-panel { flex-basis: 100px; }
+            .music-download-button { padding: 8px 6px; }
         }
     </style>
 </head>
@@ -553,8 +561,14 @@
                 <label class="main-shuffle-check"><input type="checkbox" id="mainShuffleCheck" onchange="toggleShuffle()"> <span data-i18n="music_shuffle">Shuffle</span></label>
             </div>
             <!-- Track List -->
-            <div class="music-list-container" id="musicList">
-                <!-- Tracks loaded dynamically from music/ folder -->
+            <div class="music-list-layout">
+                <div class="music-list-container" id="musicList">
+                    <!-- Tracks loaded dynamically from music/ folder -->
+                </div>
+                <div class="music-download-panel">
+                    <a class="btn btn-primary music-download-button" id="musicDownloadLink" download hidden>Download</a>
+                    <div class="music-download-title" id="musicDownloadTitle" hidden></div>
+                </div>
             </div>
         </div>
     </section>
@@ -914,6 +928,13 @@
             mainAudio.src = 'music/' + musicFiles[index];
             mainAudio.play();
             document.getElementById('mainPlayerTitle').textContent = formatTrackName(musicFiles[index]);
+            var downloadLink = document.getElementById('musicDownloadLink');
+            downloadLink.href = mainAudio.src;
+            downloadLink.download = musicFiles[index];
+            downloadLink.hidden = false;
+            var downloadTitle = document.getElementById('musicDownloadTitle');
+            downloadTitle.textContent = formatTrackName(musicFiles[index]);
+            downloadTitle.hidden = false;
             // Update active track highlight
             var tracks = document.querySelectorAll('.music-track');
             tracks.forEach(function(t) { t.classList.remove('active'); });
