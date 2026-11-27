@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Changed the Praise & Worship section subtitle to “Worship in Spirit with Your Eyes and Ears”, split across two lines.
 - Renamed `jesus.html` to `jesuschrist.html`, updated its page title and heading to “Jesus Christ”, and updated the Praise & Worship button label and link.
 - Renamed `houseofdavid.html` to `kingdavid.html` and `thechosen.html` to `jesus.html`, and updated the Praise & Worship button links.
 - Renamed the page titles and headings in `houseofdavid.html` and `thechosen.html` to “King David” and “Jesus”.
