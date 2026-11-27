@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Removed the “Open in Drive” button from the House of David and The Chosen players.
 - Added a 40-episode The Chosen player and a homepage button that opens it in a new tab.
 - Updated all House of David episode links to the latest Google Drive files.
 - Centered the social links in the top bar after removing the address and phone number.
