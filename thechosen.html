@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark">
+  <title>The Chosen</title>
+  <link rel="shortcut icon" href="cdn/files/uploads/10469550/FavIcon.png" type="image/jpeg">
+  <link rel="icon" href="cdn/files/uploads/10469550/FavIcon.png" type="image/jpeg">
+  <link rel="apple-touch-icon" sizes="152x152" href="cdn/files/uploads/10469550/FavIcon.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="cdn/files/uploads/10469550/FavIcon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="cdn/files/uploads/10469550/FavIcon.png">
+  <style>
+    :root {
+      --bg: #08090d;
+      --panel: #11141c;
+      --panel-raised: #171b25;
+      --line: rgba(255, 255, 255, 0.09);
+      --line-strong: rgba(255, 255, 255, 0.16);
+      --text: #f6f7fb;
+      --muted: #9ba4b5;
+      --accent: #ff5964;
+      --accent-warm: #ff7a4d;
+      --success: #62d8a1;
+      --radius-lg: 22px;
+      --radius-md: 14px;
+    }
+
+    * { box-sizing: border-box; }
+    html { min-width: 320px; background: var(--bg); }
+    body {
+      min-height: 100vh;
+      margin: 0;
+      overflow-x: hidden;
+      background: radial-gradient(circle at 8% -5%, rgba(255, 89, 100, 0.13), transparent 30rem),
+        radial-gradient(circle at 95% 15%, rgba(255, 122, 77, 0.08), transparent 28rem), var(--bg);
+      color: var(--text);
+      font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { font: inherit; }
+    [hidden] { display: none !important; }
+    .app { width: min(1320px, 100%); margin: 0 auto; padding: 28px clamp(16px, 3vw, 36px) 40px; }
+    .site-header { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 24px; }
+    .brand { display: flex; align-items: center; gap: 14px; min-width: 0; }
+    .brand-icon { display: grid; flex: 0 0 auto; width: 52px; height: 52px; place-items: center; border-radius: 16px; background: linear-gradient(135deg, var(--accent), var(--accent-warm)); box-shadow: 0 12px 30px rgba(255, 89, 100, 0.25); }
+    .brand-icon svg { width: 22px; height: 22px; margin-left: 2px; fill: white; }
+    .site-header h1 { margin: 0; font-size: clamp(1.55rem, 2.6vw, 2.15rem); letter-spacing: -0.035em; line-height: 1.05; }
+    .episode-count { display: inline-flex; flex: 0 0 auto; align-items: center; gap: 9px; padding: 10px 14px; border: 1px solid var(--line); border-radius: 999px; background: rgba(17, 20, 28, 0.7); color: var(--muted); font-size: 0.78rem; font-weight: 650; white-space: nowrap; backdrop-filter: blur(12px); }
+    .episode-count .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--success); box-shadow: 0 0 0 4px rgba(98, 216, 161, 0.12); }
+    .layout { display: grid; grid-template-columns: 340px minmax(0, 1fr); gap: 22px; align-items: start; }
+    .playlist-card, .player-card { border: 1px solid var(--line); border-radius: var(--radius-lg); background: rgba(17, 20, 28, 0.86); box-shadow: 0 24px 70px rgba(0, 0, 0, 0.25); backdrop-filter: blur(16px); }
+    .playlist-card { position: sticky; top: 24px; display: flex; flex-direction: column; max-height: calc(100vh - 48px); padding: 18px; }
+    .card-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 2px 2px 0; }
+    .eyebrow { margin: 0 0 4px; color: var(--accent); font-size: 0.7rem; font-weight: 750; letter-spacing: 0.16em; line-height: 1.2; text-transform: uppercase; }
+    .card-head h2 { margin: 0; font-size: 1.05rem; letter-spacing: -0.015em; }
+    .count-badge { display: grid; width: 30px; height: 30px; place-items: center; border: 1px solid var(--line); border-radius: 9px; background: rgba(255, 255, 255, 0.035); color: var(--muted); font-size: 0.75rem; font-weight: 700; }
+    .episode-list { display: flex; flex-direction: column; gap: 8px; min-height: 0; margin: 16px 0 0; padding: 0 4px 0 0; overflow-y: auto; list-style: none; scrollbar-color: rgba(255, 255, 255, 0.18) transparent; scrollbar-width: thin; }
+    .episode-list::-webkit-scrollbar { width: 6px; }
+    .episode-list::-webkit-scrollbar-thumb { border-radius: 99px; background: rgba(255, 255, 255, 0.16); }
+    .episode-btn { display: grid; grid-template-columns: 40px minmax(0, 1fr) 24px; align-items: center; gap: 12px; width: 100%; padding: 9px; border: 1px solid transparent; border-radius: 13px; background: transparent; color: var(--text); text-align: left; cursor: pointer; transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+    .episode-btn:hover { border-color: var(--line); background: rgba(255, 255, 255, 0.06); transform: translateX(2px); }
+    .episode-btn[aria-current="true"] { border-color: rgba(255, 89, 100, 0.42); background: linear-gradient(90deg, rgba(255, 89, 100, 0.16), rgba(255, 89, 100, 0.035)); box-shadow: inset 0 0 0 1px rgba(255, 89, 100, 0.08); }
+    .episode-btn:focus-visible, .drive-link:focus-visible, .control-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .ep-number { display: grid; width: 40px; height: 40px; place-items: center; border: 1px solid var(--line); border-radius: 11px; background: rgba(255, 255, 255, 0.035); color: var(--muted); font-size: 0.72rem; font-weight: 750; font-variant-numeric: tabular-nums; transition: background 160ms ease, border-color 160ms ease, color 160ms ease; }
+    .episode-btn[aria-current="true"] .ep-number { border-color: transparent; background: linear-gradient(135deg, var(--accent), var(--accent-warm)); color: white; }
+    .ep-copy { display: block; min-width: 0; }
+    .ep-title, .ep-sub { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .ep-title { font-size: 0.86rem; font-weight: 700; letter-spacing: -0.005em; }
+    .ep-sub { margin-top: 2px; color: var(--muted); font-size: 0.72rem; }
+    .ep-action { display: grid; width: 24px; height: 24px; place-items: center; border-radius: 50%; color: var(--muted); font-size: 0.58rem; opacity: 0.35; transition: background 160ms ease, color 160ms ease, opacity 160ms ease; }
+    .episode-btn:hover .ep-action, .episode-btn[aria-current="true"] .ep-action { background: rgba(255, 89, 100, 0.14); color: var(--accent); opacity: 1; }
+    .playlist-tip { margin: 14px 2px 0; padding-top: 14px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.7rem; line-height: 1.5; }
+    .player-card { min-width: 0; overflow: hidden; }
+    .player-head { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 18px 20px 16px; }
+    .now-label { display: flex; align-items: center; gap: 7px; margin: 0 0 5px; color: var(--muted); font-size: 0.67rem; font-weight: 750; letter-spacing: 0.12em; line-height: 1; text-transform: uppercase; }
+    .now-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--success); box-shadow: 0 0 0 3px rgba(98, 216, 161, 0.11); }
+    .player-head h2 { margin: 0; font-size: clamp(1.35rem, 2.2vw, 1.7rem); letter-spacing: -0.03em; line-height: 1.1; }
+    .player-head .subtitle { margin: 4px 0 0; color: var(--muted); font-size: 0.76rem; }
+    .drive-link { display: inline-flex; flex: 0 0 auto; align-items: center; gap: 7px; padding: 9px 12px; border: 1px solid var(--line); border-radius: 10px; background: rgba(255, 255, 255, 0.035); color: #d7dce6; font-size: 0.72rem; font-weight: 650; text-decoration: none; transition: background 160ms ease, border-color 160ms ease, color 160ms ease; }
+    .drive-link:hover { border-color: var(--line-strong); background: rgba(255, 255, 255, 0.075); color: white; }
+    .drive-link svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; }
+    .video-shell { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: #000; }
+    .video-frame { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: #000; }
+    .video-frame iframe { position: absolute; inset: 0; display: block; width: 100%; height: 100%; border: 0; background: #000; }
+    .stage-overlay { position: absolute; inset: 0; display: grid; place-content: center; gap: 12px; background: rgba(0, 0, 0, 0.72); color: #fff; text-align: center; pointer-events: none; }
+    .stage-overlay p { margin: 0; color: #d7dce6; font-size: 0.82rem; }
+    .spinner { width: 26px; height: 26px; margin: 0 auto; border: 2px solid rgba(255, 255, 255, 0.22); border-top-color: var(--accent); border-radius: 50%; animation: spin 800ms linear infinite; }
+    .controls { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; padding: 16px 20px 12px; }
+    .control-btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 44px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 11px; background: rgba(255, 255, 255, 0.035); color: #d7dce6; font-size: 0.76rem; font-weight: 650; text-decoration: none; cursor: pointer; transition: background 160ms ease, border-color 160ms ease, color 160ms ease; }
+    .control-btn:hover:not(:disabled) { border-color: var(--line-strong); background: rgba(255, 255, 255, 0.075); color: white; }
+    .control-btn:disabled { color: #687080; cursor: not-allowed; opacity: 0.55; }
+    .control-btn svg { width: 15px; height: 15px; fill: currentColor; }
+    .player-meta { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 20px 16px; color: var(--muted); font-size: 0.69rem; }
+    .player-meta p { margin: 0; }
+    .player-meta kbd { display: inline-block; min-width: 19px; padding: 2px 5px; border: 1px solid var(--line); border-bottom-color: var(--line-strong); border-radius: 5px; background: rgba(255, 255, 255, 0.04); color: #c5ccd8; font-family: inherit; font-size: 0.65rem; line-height: 1.2; text-align: center; }
+    .position-label { flex: 0 0 auto; color: #c9d0db; font-variant-numeric: tabular-nums; font-weight: 650; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @media (max-width: 980px) {
+      .layout { grid-template-columns: minmax(0, 1fr); }
+      .player-card { order: 1; }
+      .playlist-card { position: static; order: 2; max-height: none; }
+      .episode-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); overflow: visible; }
+    }
+    @media (max-width: 620px) {
+      .app { padding-top: 20px; }
+      .site-header { align-items: flex-start; margin-bottom: 18px; }
+      .brand-icon { width: 46px; height: 46px; border-radius: 14px; }
+      .episode-count { padding: 9px 11px; font-size: 0.7rem; }
+      .player-head { align-items: flex-start; padding: 16px 16px 14px; }
+      .drive-link { padding: 8px 10px; }
+      .drive-link span { display: none; }
+      .controls { gap: 8px; padding: 14px 12px 10px; }
+      .control-btn { flex-direction: column; gap: 6px; padding: 11px 6px; font-size: 0.7rem; }
+      .player-meta { padding: 0 16px 14px; }
+      .player-meta .shortcuts { display: none; }
+      .player-meta { justify-content: flex-end; }
+      .episode-list { grid-template-columns: minmax(0, 1fr); }
+    }
+    @media (max-width: 420px) {
+      .episode-count { display: none; }
+      .player-head { flex-direction: column; gap: 12px; }
+      .drive-link span { display: inline; }
+      .controls { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .control-btn { flex-direction: row; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="site-header">
+      <div class="brand">
+        <div class="brand-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false">
+            <path d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.1-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14Z"/>
+          </svg>
+        </div>
+        <div><h1>The Chosen</h1></div>
+      </div>
+      <div class="episode-count" aria-label="40 episodes available">
+        <span class="dot" aria-hidden="true"></span>
+        40 episodes
+      </div>
+    </header>
+
+    <main class="layout">
+      <aside class="playlist-card" aria-labelledby="playlistTitle">
+        <div class="card-head">
+          <div>
+            <p class="eyebrow">Playlist</p>
+            <h2 id="playlistTitle">Choose an episode</h2>
+          </div>
+          <span class="count-badge" aria-hidden="true">40</span>
+        </div>
+        <ul class="episode-list" id="episodeList"></ul>
+        <p class="playlist-tip">Select an episode to load it in the player. Previous and Next move through the episodes.</p>
+      </aside>
+
+      <section class="player-card" aria-labelledby="currentTitle">
+        <div class="player-head">
+          <div>
+            <p class="now-label">
+              <span class="now-dot" aria-hidden="true"></span>
+              <span id="nowStatus">Now selected</span>
+            </p>
+            <h2 id="currentTitle" aria-live="polite">Episode 1</h2>
+            <p class="subtitle" id="currentSubtitle">Season 1</p>
+          </div>
+          <a class="drive-link" id="driveLink" href="#" target="_blank" rel="noopener noreferrer" aria-label="Open current episode in Google Drive">
+            <span>Open in Drive</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M14 5h5v5M19 5l-8 8M10 5H6a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-4"/>
+            </svg>
+          </a>
+        </div>
+        <div class="video-shell">
+          <div class="video-frame">
+            <iframe id="playerFrame" title="Episode video player" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen loading="eager"></iframe>
+            <div class="stage-overlay loading-overlay" id="loadingOverlay" role="status" aria-live="polite">
+              <span class="spinner" aria-hidden="true"></span>
+              <p>Loading episode…</p>
+            </div>
+          </div>
+        </div>
+        <div class="controls" role="group" aria-label="Episode navigation">
+          <button class="control-btn" id="prevBtn" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 5h2v14H6zM19 5v14l-9-7 9-7z"/></svg>
+            <span>Previous</span>
+          </button>
+          <button class="control-btn" id="nextBtn" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16 5h2v14h-2zM5 5v14l9-7-9-7z"/></svg>
+            <span>Next</span>
+          </button>
+          <a class="control-btn" id="downloadLink" href="#" target="_blank" rel="noopener"><span>Download</span></a>
+        </div>
+        <div class="player-meta">
+          <p class="shortcuts">Use <kbd>←</kbd> <kbd>→</kbd> to move between episodes.</p>
+          <p class="position-label" id="positionLabel">1 / 40</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      "use strict";
+
+      var episodes = [
+        { title: "Episode 1", subtitle: "Season 1", id: "1aiM2pVWEgHO315kmO-ocNBeHUq56y_wI" },
+        { title: "Episode 2", subtitle: "Season 1", id: "12wxPUQsFMD2BvLHn0tRoIQdHMKZvJ9gF" },
+        { title: "Episode 3", subtitle: "Season 1", id: "1qOmTkitwNYALfTyPPVerDG4wf4Km3QEN" },
+        { title: "Episode 4", subtitle: "Season 1", id: "1vE7YbC_ocrI3dDeXNDnztY0s-GlwRMWg" },
+        { title: "Episode 5", subtitle: "Season 1", id: "1K0w67XpNnvyij2VbCJ6_0d4S0vAb6AoN" },
+        { title: "Episode 6", subtitle: "Season 1", id: "1SLXSZFPF7PFn49SfRrrDvZfPDWde5gzl" },
+        { title: "Episode 7", subtitle: "Season 1", id: "1pG-8BMlb6DciGBPq2Wn7akLob2zp5UmG" },
+        { title: "Episode 8", subtitle: "Season 1", id: "1D7SFnBJKIsrgVKehK2R_FtJv2IOZxCaW" },
+        { title: "Episode 1", subtitle: "Season 2", id: "1mLNI3KR_m1dJocqgm4kFZA7wJCi-irrB" },
+        { title: "Episode 2", subtitle: "Season 2", id: "12fcWOXcGlqEtPKaY1kRNAHp4EB7hqgVs" },
+        { title: "Episode 3", subtitle: "Season 2", id: "1-fxD7GfMjZVSlA3-GF7DPAdb9-ePiXDM" },
+        { title: "Episode 4", subtitle: "Season 2", id: "1zeSzkjTStmKpEqTxJrDI4JoAMnlkzr2q" },
+        { title: "Episode 5", subtitle: "Season 2", id: "13DZPdC_asEW_kd3wNnl3pEnPX8ZSpBE0" },
+        { title: "Episode 6", subtitle: "Season 2", id: "1zAxISAzxL38bDm1bcsvofm10MjOs_pxK" },
+        { title: "Episode 7", subtitle: "Season 2", id: "1q-pSCYqrVVRgwf5WJMuOSSJTP-kx92xl" },
+        { title: "Episode 8", subtitle: "Season 2", id: "1XYtx8QWRpYD-0ba8n60xyiB6Xs793Rbo" },
+        { title: "Episode 1", subtitle: "Season 3", id: "1QuQJLGAsnO-6lcqSA4NhM4z6fDknSbT7" },
+        { title: "Episode 2", subtitle: "Season 3", id: "1MJgjq5hcnXUtfY3ZEUe15xLa193GeiRi" },
+        { title: "Episode 3", subtitle: "Season 3", id: "1bg1-_ATuyCo0gauB0M7-N7iitcmcsWch" },
+        { title: "Episode 4", subtitle: "Season 3", id: "1JzvCF_oximrjjbknUP8R5mHp0Z1he9dD" },
+        { title: "Episode 5", subtitle: "Season 3", id: "1qB54OhpktrnKVGNra6zjTSXqfQyulbWd" },
+        { title: "Episode 6", subtitle: "Season 3", id: "1saYpjjaU_PYAIIrh9qJI5eddMzjzMH-T" },
+        { title: "Episode 7", subtitle: "Season 3", id: "1zuQpCxlnk1IaExBr-SuOkQMQOq6kexQT" },
+        { title: "Episode 8", subtitle: "Season 3", id: "13dwst6bX-MsVsmxaNn6HMMY7f9eH5FLW" },
+        { title: "Episode 1", subtitle: "Season 4", id: "1Uz9Imf1xFobxzybIQjVHIJSLQwAsttKr" },
+        { title: "Episode 2", subtitle: "Season 4", id: "1UJmjh_DRxMkhgyLSyqOm_dDjjRnxwDeQ" },
+        { title: "Episode 3", subtitle: "Season 4", id: "15cWssoNrzYhFG7ngbhFmSsFIIA9H0zR1" },
+        { title: "Episode 4", subtitle: "Season 4", id: "10UKnlElNZ7Fgcxzb5dWF1yP1Xrzjh8_J" },
+        { title: "Episode 5", subtitle: "Season 4", id: "13R1QpIN_QEJoLXfhfVfKfpG8kIxk9YMs" },
+        { title: "Episode 6", subtitle: "Season 4", id: "1dihYDGk1ovgDPAUqHXUCX_Ri1B1pouj2" },
+        { title: "Episode 7", subtitle: "Season 4", id: "1Aa_kztcyOICNhPzrEXvOD4fpmNbxCqqq" },
+        { title: "Episode 8", subtitle: "Season 4", id: "1mVDT5xBnFiwkcoXMw4Ljz0OcFviANISA" },
+        { title: "Episode 1", subtitle: "Season 5", id: "1cTNhU11PsElnzzbqEFmzqVfrINqfzAUM" },
+        { title: "Episode 2", subtitle: "Season 5", id: "19lqsvhEYtddAfWqeu0FFGLKLqMIOgHQ5" },
+        { title: "Episode 3", subtitle: "Season 5", id: "1gpcKLZDmDebOWjgEPWm88NcQT7jD1Ehz" },
+        { title: "Episode 4", subtitle: "Season 5", id: "1kAoovLwmowuPA0NTCCotBRC4jiuKeMQf" },
+        { title: "Episode 5", subtitle: "Season 5", id: "1vehKBXWJOPXECG4zb63C1v8MaBMNySND" },
+        { title: "Episode 6", subtitle: "Season 5", id: "19RVlC_7OANIH5ZmZEVMEGIuwEjC9APhu" },
+        { title: "Episode 7", subtitle: "Season 5", id: "1zD8Nee6mzhlaO8dNfzjqHAaDg3WYs-ZH" },
+        { title: "Episode 8", subtitle: "Season 5", id: "1Sa2HJjzcMJTH7DB4DXVyrN-PEcPGA95P" }
+      ];
+
+      var episodeList = document.getElementById("episodeList");
+      var playerFrame = document.getElementById("playerFrame");
+      var loadingOverlay = document.getElementById("loadingOverlay");
+      var currentTitle = document.getElementById("currentTitle");
+      var currentSubtitle = document.getElementById("currentSubtitle");
+      var nowStatus = document.getElementById("nowStatus");
+      var driveLink = document.getElementById("driveLink");
+      var downloadLink = document.getElementById("downloadLink");
+      var positionLabel = document.getElementById("positionLabel");
+      var prevBtn = document.getElementById("prevBtn");
+      var nextBtn = document.getElementById("nextBtn");
+      var state = { current: 0 };
+      var loadTimer = null;
+
+      function previewUrl(episode) {
+        return "https://drive.google.com/file/d/" + episode.id + "/preview";
+      }
+
+      function viewUrl(episode) {
+        return "https://drive.google.com/file/d/" + episode.id + "/view";
+      }
+
+      function downloadUrl(episode) {
+        return "https://drive.google.com/uc?export=download&id=" + encodeURIComponent(episode.id);
+      }
+
+      function renderPlaylist() {
+        var fragment = document.createDocumentFragment();
+        episodes.forEach(function (episode, index) {
+          var item = document.createElement("li");
+          var button = document.createElement("button");
+          var number = document.createElement("span");
+          var copy = document.createElement("span");
+          var title = document.createElement("span");
+          var subtitle = document.createElement("span");
+          var action = document.createElement("span");
+
+          button.type = "button";
+          button.className = "episode-btn";
+          button.dataset.index = String(index);
+          button.setAttribute("aria-label", "Play " + episode.title + ", " + episode.subtitle);
+          number.className = "ep-number";
+          number.textContent = String(index + 1).padStart(2, "0");
+          copy.className = "ep-copy";
+          title.className = "ep-title";
+          title.textContent = episode.title;
+          subtitle.className = "ep-sub";
+          subtitle.textContent = episode.subtitle;
+          copy.appendChild(title);
+          copy.appendChild(subtitle);
+          action.className = "ep-action";
+          action.setAttribute("aria-hidden", "true");
+          action.textContent = "▶";
+          button.appendChild(number);
+          button.appendChild(copy);
+          button.appendChild(action);
+          button.addEventListener("click", function () { selectEpisode(index); });
+          item.appendChild(button);
+          fragment.appendChild(item);
+        });
+        episodeList.appendChild(fragment);
+      }
+
+      function updateSelection() {
+        var buttons = episodeList.querySelectorAll(".episode-btn");
+        var episode = episodes[state.current];
+        buttons.forEach(function (button, index) {
+          if (index === state.current) button.setAttribute("aria-current", "true");
+          else button.removeAttribute("aria-current");
+        });
+        currentTitle.textContent = episode.title;
+        currentSubtitle.textContent = episode.subtitle;
+        positionLabel.textContent = (state.current + 1) + " / " + episodes.length;
+        driveLink.href = viewUrl(episode);
+        driveLink.setAttribute("aria-label", "Open " + episode.title + " in Google Drive");
+        downloadLink.href = downloadUrl(episode);
+        downloadLink.setAttribute("aria-label", "Download " + episode.title + ", " + episode.subtitle);
+        prevBtn.disabled = state.current === 0;
+        nextBtn.disabled = state.current === episodes.length - 1;
+      }
+
+      function beginLoading() {
+        var episode = episodes[state.current];
+        window.clearTimeout(loadTimer);
+        loadingOverlay.hidden = false;
+        nowStatus.textContent = "Loading…";
+        playerFrame.title = episode.title + " — " + episode.subtitle;
+        playerFrame.src = previewUrl(episode);
+        loadTimer = window.setTimeout(function () {
+          loadingOverlay.hidden = true;
+          nowStatus.textContent = "Now loaded";
+        }, 12000);
+      }
+
+      function selectEpisode(index) {
+        if (index < 0 || index >= episodes.length) return;
+        state.current = index;
+        updateSelection();
+        beginLoading();
+        var selectedButton = episodeList.querySelector('.episode-btn[data-index="' + index + '"]');
+        if (selectedButton) selectedButton.scrollIntoView({ block: "nearest", behavior: "smooth" });
+      }
+
+      function goPrevious() {
+        if (state.current > 0) selectEpisode(state.current - 1);
+      }
+
+      function goNext() {
+        if (state.current < episodes.length - 1) selectEpisode(state.current + 1);
+      }
+
+      playerFrame.addEventListener("load", function () {
+        window.clearTimeout(loadTimer);
+        loadingOverlay.hidden = true;
+        nowStatus.textContent = "Now loaded";
+      });
+      prevBtn.addEventListener("click", goPrevious);
+      nextBtn.addEventListener("click", goNext);
+      document.addEventListener("keydown", function (event) {
+        var target = event.target;
+        var tagName = target && target.tagName ? target.tagName : "";
+        var isFormField = /^(INPUT|TEXTAREA|SELECT)$/.test(tagName);
+        if (isFormField || event.altKey || event.ctrlKey || event.metaKey) return;
+        if (event.key === "ArrowLeft" && !prevBtn.disabled) {
+          event.preventDefault();
+          goPrevious();
+        } else if (event.key === "ArrowRight" && !nextBtn.disabled) {
+          event.preventDefault();
+          goNext();
+        }
+      });
+      renderPlaylist();
+      updateSelection();
+      beginLoading();
+    })();
+  </script>
+</body>
+</html>
