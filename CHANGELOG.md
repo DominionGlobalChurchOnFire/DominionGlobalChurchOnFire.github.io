@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Renamed `jesus.html` to `jesuschrist.html`, updated its page title and heading to “Jesus Christ”, and updated the Praise & Worship button label and link.
 - Renamed `houseofdavid.html` to `kingdavid.html` and `thechosen.html` to `jesus.html`, and updated the Praise & Worship button links.
 - Renamed the page titles and headings in `houseofdavid.html` and `thechosen.html` to “King David” and “Jesus”.
 - Renamed the “House of David” Praise & Worship button to “King David” and the “The Chosen” button to “Jesus”.
