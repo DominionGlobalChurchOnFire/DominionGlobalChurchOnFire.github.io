@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Renamed `houseofdavid.html` to `kingdavid.html` and `thechosen.html` to `jesus.html`, and updated the Praise & Worship button links.
+- Renamed the page titles and headings in `houseofdavid.html` and `thechosen.html` to “King David” and “Jesus”.
+- Renamed the “House of David” Praise & Worship button to “King David” and the “The Chosen” button to “Jesus”.
 - Updated the footer text to “Dominion Global Church On Fire”.
 - Added a three-part Moses player and a “Moses” Praise & Worship button that opens it in a new tab.
 - Removed the “Open in Drive” button from the House of David and The Chosen players.
