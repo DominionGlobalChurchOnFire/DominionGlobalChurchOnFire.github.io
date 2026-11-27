@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Added a three-part Moses player and a “Moses” Praise & Worship button that opens it in a new tab.
 - Removed the “Open in Drive” button from the House of David and The Chosen players.
 - Added a 40-episode The Chosen player and a homepage button that opens it in a new tab.
 - Updated all House of David episode links to the latest Google Drive files.
