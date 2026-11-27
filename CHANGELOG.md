@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Updated all House of David episode links to the latest Google Drive files.
 - Centered the social links in the top bar after removing the address and phone number.
 - Show the hamburger navigation at viewport widths of 1070px and below.
 - Applied the pill-shaped hover background consistently to all navbar links, including “Contact Us.”
